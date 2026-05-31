@@ -48,3 +48,7 @@
 ├── Dockerfile             # دستورالعمل ساخت ایمیج پایتون پروژه
 ├── docker-compose.yml     # ارکستراسیون سرویس‌های Web, DB, Redis
 └── requirements.txt       # لیست نیازمندی‌ها و پکیج‌های پایتونی
+
+‍‍‍‍```
+
+## Developing ...
