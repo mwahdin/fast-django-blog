@@ -14,20 +14,15 @@
 
 ### Custom User Model
 
-* حذف کامل فیلد `username`
-* احراز هویت مبتنی بر ایمیل
-* استفاده از `email` به عنوان `USERNAME_FIELD`
+سیستم احراز هویت پروژه به صورت کامل بر پایه ایمیل طراحی شده و وابستگی به فیلد پیش‌فرض `username` حذف شده است. این رویکرد ساختاری مدرن‌تر برای مدیریت کاربران فراهم می‌کند و فرآیند ورود و ثبت‌نام را برای کاربران ساده‌تر می‌سازد.
 
 ### Profile Management
 
-* جداسازی اطلاعات هویتی و اطلاعات پروفایل
-* مدل مستقل `Profile`
-* مدیریت خودکار پروفایل کاربران
+به منظور جداسازی مسئولیت‌ها و افزایش انعطاف‌پذیری، اطلاعات اصلی کاربر و اطلاعات پروفایل در مدل‌های مجزا ذخیره می‌شوند. این ساختار توسعه قابلیت‌های آینده مانند شبکه اجتماعی، داشبورد کاربری و تنظیمات شخصی را آسان‌تر می‌کند.
 
 ### Signals Integration
 
-* استفاده از سیگنال `post_save`
-* ایجاد خودکار پروفایل هنگام ثبت‌نام کاربران
+با استفاده از سیگنال `post_save`، پروفایل هر کاربر به صورت خودکار پس از ثبت‌نام ایجاد می‌شود. این مکانیزم از ایجاد داده‌های ناقص جلوگیری کرده و یکپارچگی اطلاعات کاربران را تضمین می‌کند.
 
 ---
 
@@ -35,29 +30,24 @@
 
 ### SEO-Friendly URLs
 
-* استفاده از `slug`
-* حذف وابستگی به شناسه عددی (`pk`)
-* آدرس‌های مناسب برای موتورهای جستجو
+برای دسترسی به صفحات جزئیات مقالات از فیلد `slug` به جای شناسه عددی استفاده شده است. این رویکرد باعث تولید URLهای خواناتر و سازگارتر با استانداردهای سئو می‌شود و تجربه کاربری بهتری فراهم می‌کند.
 
 ### Article Status Management
 
-* پیاده‌سازی استاندارد `TextChoices`
-* مدیریت وضعیت مقالات:
+مدیریت وضعیت انتشار مقالات با استفاده از `TextChoices` پیاده‌سازی شده است. این ساختار امکان کنترل چرخه انتشار محتوا را فراهم کرده و خوانایی و نگهداری کد را بهبود می‌بخشد.
 
-  * Draft (DR)
-  * Published (PB)
+**وضعیت‌های فعلی:**
+
+* Draft (DR)
+* Published (PB)
 
 ### Category System
 
-* دسته‌بندی مقالات
-* تولید خودکار Slug در پنل مدیریت
-* ارتباط ForeignKey بین مقالات و دسته‌بندی‌ها
+مقالات در دسته‌بندی‌های مختلف سازمان‌دهی می‌شوند و اسلاگ هر دسته‌بندی به صورت خودکار در پنل مدیریت تولید می‌شود. این قابلیت مدیریت محتوا را ساده‌تر کرده و ساختار منظم‌تری برای وبلاگ ایجاد می‌کند.
 
 ### Content Presentation
 
-* پیاده‌سازی ListView
-* پیاده‌سازی DetailView
-* نمایش مقالات بر اساس Slug
+نمایش مقالات با استفاده از `ListView` و `DetailView` پیاده‌سازی شده است. بهره‌گیری از کلاس‌بیس ویوها باعث کاهش کدهای تکراری و افزایش قابلیت توسعه و نگهداری پروژه شده است.
 
 ---
 
@@ -65,47 +55,31 @@
 
 ### Hybrid Backend
 
-* Django Template Views (CBV)
-* Django REST Framework (DRF)
-* آمادگی برای اتصال به Frontendهای مدرن
+پروژه به صورت همزمان شامل رابط کاربری مبتنی بر قالب‌های جنگو و یک لایه API مستقل است. این معماری امکان استفاده از پروژه به عنوان Backend اپلیکیشن‌های موبایل، SPAها و سایر سرویس‌های مدرن را فراهم می‌کند.
 
 ### PostgreSQL Integration
 
-* استفاده از PostgreSQL 15
-* ذخیره‌سازی پایدار داده‌ها
-* آماده برای محیط Production
+برای ذخیره‌سازی داده‌ها از PostgreSQL استفاده شده است؛ یکی از قدرتمندترین پایگاه‌های داده متن‌باز که در بسیاری از پروژه‌های سازمانی و محیط‌های Production مورد استفاده قرار می‌گیرد.
 
 ### Redis Integration
 
-* پیکربندی Redis 7
-* آماده برای:
-
-  * Caching
-  * Session Management
-  * Celery Tasks
+زیرساخت Redis از ابتدا در پروژه آماده شده است تا در مراحل توسعه برای کشینگ، مدیریت Sessionها و پردازش وظایف ناهمگام با Celery مورد استفاده قرار گیرد.
 
 ### Dockerized Infrastructure
 
-* Docker
-* Docker Compose
-* معماری Multi-Container
+تمام سرویس‌های پروژه شامل Django، PostgreSQL و Redis در کانتینرهای مستقل اجرا می‌شوند. این رویکرد فرآیند توسعه، استقرار و همکاری تیمی را ساده‌تر و قابل پیش‌بینی‌تر می‌کند.
 
 ---
 
 ## 🌍 Internationalization
 
-* استفاده از `gettext_lazy`
-* آماده برای چندزبانه شدن پروژه
-* قابلیت توسعه برای زبان‌های مختلف
+تمام رشته‌های متنی پروژه با استفاده از `gettext_lazy` آماده ترجمه‌سازی شده‌اند. این قابلیت امکان چندزبانه کردن پروژه و توسعه آن برای کاربران بین‌المللی را فراهم می‌کند.
 
 ---
 
 ## 📂 Media & Static Files
 
-* مدیریت فایل‌های Media
-* آپلود تصاویر پروفایل کاربران
-* آپلود کاور مقالات
-* مدیریت فایل‌های Static
+مدیریت فایل‌های رسانه‌ای و استاتیک پروژه به صورت کامل پیکربندی شده است. کاربران می‌توانند تصاویر پروفایل و تصاویر مقالات را بارگذاری کرده و در محیط توسعه به صورت زنده مشاهده کنند.
 
 ---
 
@@ -174,11 +148,11 @@ cd django_blog
 docker compose up --build
 ```
 
-این دستور سرویس‌های زیر را اجرا می‌کند:
+این دستور سرویس‌های زیر را به صورت همزمان راه‌اندازی می‌کند:
 
-* Django Web
-* PostgreSQL
-* Redis
+* Django Web Application
+* PostgreSQL Database
+* Redis Server
 
 ---
 
@@ -189,6 +163,8 @@ docker compose run web python manage.py makemigrations
 docker compose run web python manage.py migrate
 ```
 
+این دستورات جداول مورد نیاز پروژه را در پایگاه داده PostgreSQL ایجاد می‌کنند.
+
 ---
 
 ## 4. Create Superuser
@@ -196,6 +172,8 @@ docker compose run web python manage.py migrate
 ```bash
 docker compose run web python manage.py createsuperuser
 ```
+
+برای دسترسی به پنل مدیریت جنگو، یک کاربر ادمین ایجاد کنید.
 
 ---
 
@@ -223,6 +201,8 @@ http://localhost:8000/api/v1/
 
 # 📈 Development Roadmap
 
+این پروژه با هدف تبدیل شدن به یک پلتفرم وبلاگ‌نویسی مدرن، مقیاس‌پذیر و API-Driven در حال توسعه است. امکانات فعلی و برنامه‌های آینده پروژه در فازهای زیر دسته‌بندی شده‌اند.
+
 ## ✅ Phase 1 — Infrastructure & Core Models
 
 * [x] Docker Multi-Container Architecture
@@ -232,13 +212,15 @@ http://localhost:8000/api/v1/
 * [x] Automatic Profile Creation via Signals
 * [x] Category & Post Models
 * [x] TextChoices Status System
-* [ ] Slug-Based Routing
-* [ ] ListView Implementation
-* [ ] DetailView Implementation
+* [x] Slug-Based Routing
+* [x] ListView Implementation
+* [x] DetailView Implementation
 
 ---
 
 ## 🚧 Phase 2 — Content Management & API
+
+تمرکز این فاز بر توسعه سیستم مدیریت محتوا و تکمیل لایه API پروژه است.
 
 * [ ] CreateView for User Posts
 * [ ] Custom Forms
@@ -253,6 +235,8 @@ http://localhost:8000/api/v1/
 ---
 
 ## 🔥 Phase 3 — Modern Blog Features
+
+هدف این فاز نزدیک کردن پروژه به قابلیت‌های مورد انتظار از یک وبلاگ مدرن و آماده استفاده در محیط واقعی است.
 
 ### User Interaction
 
@@ -299,17 +283,19 @@ http://localhost:8000/api/v1/
 
 # 🎯 Project Goals
 
-این پروژه با هدف یادگیری و پیاده‌سازی مفاهیم زیر توسعه داده شده است:
+این پروژه صرفاً یک وبلاگ ساده نیست؛ بلکه به عنوان بستری برای یادگیری و پیاده‌سازی مفاهیم مهم توسعه بک‌اند طراحی شده است.
 
-* Django CBVs
-* Django ORM
-* Django Authentication System
-* Django Signals
-* Django REST Framework
-* PostgreSQL
-* Redis
-* Docker & Containerization
-* Scalable Backend Architecture
+مهم‌ترین اهداف پروژه عبارت‌اند از:
+
+* تسلط بر Django CBVs
+* طراحی Custom User Model
+* کار با Django ORM
+* مدیریت Authentication و Authorization
+* استفاده از Django Signals
+* توسعه API با Django REST Framework
+* کار با PostgreSQL و Redis
+* پیاده‌سازی Dockerized Applications
+* طراحی معماری‌های مقیاس‌پذیر برای پروژه‌های واقعی
 
 ---
 
