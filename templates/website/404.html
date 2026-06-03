@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <div class="row pt-70 pb-300">
+            <div class="col-lg-6 col-md-8 col-12 mx-auto">
+                <div class="text-center">
+                    <div class="imgs-404">
+                        <img class="img-1" src="{% static 'assets/imgs/template/author/author-20.png' %}" alt="magzin">
+                        <img class="img-2" src="{% static 'assets/imgs/template/author/author-21.png' %}" alt="magzin">
+                        <img class="img-3" src="{% static 'assets/imgs/template/author/author-22.png' %}" alt="magzin">
+                    </div>
+                    <h5>متاسفیم، به نظر می‌رسد این صفحه را از دست داده‌ایم، اما نمی‌خواهیم شما را از دست بدهیم.</h5>
+                    <form action="page-404.html#" class="d-flex flex-wrap flex-lg-nowrap gap-2 ">
+                        <input class="form-control" type="text" placeholder="جستجو...">
+                        <button class="btn btn-dark button-effect-1" type="submit">
+                            جستجو
+                        </button>
+                    </form>
+                    <p class="mt-5 mb-0">
+                        بازگشت به
+                        <a href="index.html" class="text-dark">صفحه اصلی</a>
+                        یـا
+                        <a href="page-404.html#" class="text-dark">خرابی لینک را اینجا گزارش دهید</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock %}

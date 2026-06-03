@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Post
 
 # Create your views here.
+class AuthorView(TemplateView):
+    template_name = 'blog/author.html'
+
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/index.html'
@@ -13,7 +17,9 @@ class PostListView(ListView):
         return Post.objects.filter(status=Post.Status.PUBLISHED).order_by('-published_date')
     
 class PostDetailView(DetailView):
-    pass
+    model = Post
+    template_name = 'blog/single.html'
+    context_objeect_name = 'post'
 
 class PostCreateView(CreateView):
     pass

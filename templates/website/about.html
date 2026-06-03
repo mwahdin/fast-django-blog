@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ul class="breadcrumb list-unstyled d-flex flex-row gap-2 align-items-center m-0 pe-0 py-4">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-600 fs-7 hover-dark">صفحه اصلی</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <span class="icon-shape icon-xxs">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"
+                                    fill="none">
+                                    <path d="M6.125 4.5625L9.5625 7.84375L6.125 11.125" stroke="#626568"
+                                        stroke-width="0.9375" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </li>
+                        <li class="breadcrumb-item active text-dark fs-7" aria-current="page">درباره ما</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- prettier-ignore -->
+    <!-- About section 1 -->
+    <section class="sec-1-about sec-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="ds-5 mb-0 text-anime-style-2">درباره Magzin</h2>
+                    <p class="fs-56 m-0 text-anime-style-1">
+                        ما یک تیم اختصاصی از خالقان، استراتژیست‌ها و متخصصان هستیم که بر ارائه <br
+                            class="d-none d-lg-block">
+                        کار متفکرانه و با کیفیت بالا تمرکز داریم.
+                    </p>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col-12">
+                    <div class="rounded-16 overflow-hidden hover-effect-1">
+                        <img class="image cover-image" src="{% static 'assets/imgs/page/img-117.png' %}" alt="magzin">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 ps-lg-5">
+                    <h5 class="mb-4">وظایف ما</h5>
+                    <ul class="list-unstyled m-0 p-0">
+                        <li class="d-flex gap-3">
+                            <p class="mt-0 text-dark w-25">انتشار مطالب</p>
+                            <p class="w-75 mt-0">ما مقالاتی با دقت، خلاقیت و ظرافت نوشته شده ارائه می‌دهیم - از موضوعات
+                                پرطرفدار گرفته تا توصیه‌های ماندگار.</p>
+                        </li>
+                        <li class="d-flex gap-3">
+                            <p class="mt-0 text-dark w-25">بینش تخصصی</p>
+                            <p class="w-75 mt-0">تیم نویسندگان و مشارکت‌کنندگان ما شامل متخصصان باتجربه‌ای است که نکات
+                                کاربردی، استراتژی‌های اثبات‌شده و عملی قابل اعتماد را به اشتراک می‌گذارند.</p>
+                        </li>
+                        <li class="d-flex gap-3">
+                            <p class="mt-0 text-dark w-25">به روزرسانی</p>
+                            <p class="w-75 mt-0">ما چیزی بیش از یک پلتفرم هستیم - ما فضایی برای ارتباط هستیم. ما به قدرت
+                                داستان‌ها، ایده‌ها و صداهای مشترک اعتقاد داریم. به ما بپیوندید و بخشی از چیزی معنادار
+                                باشید.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 ">
+                    <h5 class="mb-4">ارزش های ما</h5>
+                    <ul class="list-unstyled m-0 p-0">
+                        <li class="d-flex gap-3">
+                            <p class="mt-0 text-dark w-25">الهام بخش</p>
+                            <p class="w-75 mt-0">هدف ما الهام بخشیدن و توانمندسازی خوانندگانمان - از نظر شخصی و حرفه‌ای
+                                - با ارائه ابزارها، منابع و بینش‌های معنادار است که باعث رشد و هدفمندی می‌شوند.</p>
+                        </li>
+                        <li class="d-flex gap-3">
+                            <p class="mt-0 text-dark w-25">تجربیات واقعی</p>
+                            <p class="w-75 mt-0">ما به واقعی بودن اعتقاد داریم. محتوای ما صادقانه، شفاف و مبتنی بر
+                                تجربیات واقعی است که با مخاطبان ما طنین‌انداز می‌شود.</p>
+                        </li>
+                        <li class="d-flex gap-3">
+                            <p class="mt-0 text-dark w-25">ایده های خلاق</p>
+                            <p class="w-75 mt-0">ما با ایده‌های نو و تفکر اصیل شکوفا می‌شویم. خلاقیت در قلب هر کاری که
+                                انجام می‌دهیم، از داستان‌سرایی گرفته تا طراحی قرار دارد.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About section 2 -->
+    <section class="sec-2-about">
+        <div class="container">
+            <div class="row g-4 bg-50">
+                <div class="col-12">
+                    <h2 class="mb-4 text-center text-anime-style-2 fs-1">نویسندگان خبری</h2>
+                </div>
+                <!-- prettier-ignore -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="author-grid-wrap h-100">
+                        <div class="hover-effect-1">
+                            <div class="card-img-top">
+                                <a href="page-author.html">
+                                    <img src="{% static 'assets/imgs/page/img-9.png' %}" alt="magzin"
+                                        class="author-image-avator w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="author-sticky-block-left-bottom">
+                            <a href="page-author.html">
+                                <h6 class="fs-7 mb-0">فاطمه حسینی</h6>
+                            </a>
+                            <p class="fs-7 m-0">وبلاگ نویس گردشگری</p>
+                        </div>
+                        <div class="author-sticky-corner-left-top"></div>
+                        <div class="author-sticky-corner-right-bottom"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="author-grid-wrap h-100">
+                        <div class="hover-effect-1">
+                            <div class="card-img-top">
+                                <a href="page-author.html">
+                                    <img src="{% static 'assets/imgs/page/img-10.png' %}" alt="magzin"
+                                        class="author-image-avator w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="author-sticky-block-left-bottom">
+                            <a href="page-author.html">
+                                <h6 class="fs-7 mb-0">سونیا مهدوی</h6>
+                            </a>
+                            <p class="fs-7 m-0">وبلاگ نویس فناوری</p>
+                        </div>
+                        <div class="author-sticky-corner-left-top"></div>
+                        <div class="author-sticky-corner-right-bottom"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="author-grid-wrap h-100">
+                        <div class="hover-effect-1">
+                            <div class="card-img-top">
+                                <a href="page-author.html">
+                                    <img src="{% static 'assets/imgs/page/img-11.png' %}" alt="magzin"
+                                        class="author-image-avator w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="author-sticky-block-left-bottom">
+                            <a href="page-author.html">
+                                <h6 class="fs-7 mb-0">عاطفه راد</h6>
+                            </a>
+                            <p class="fs-7 m-0">وبلاگ نویس پزشکی</p>
+                        </div>
+                        <div class="author-sticky-corner-left-top"></div>
+                        <div class="author-sticky-corner-right-bottom"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="author-grid-wrap h-100">
+                        <div class="hover-effect-1">
+                            <div class="card-img-top">
+                                <a href="page-author.html">
+                                    <img src="{% static 'assets/imgs/page/img-12.png' %}" alt="magzin"
+                                        class="author-image-avator w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="author-sticky-block-left-bottom">
+                            <a href="page-author.html">
+                                <h6 class="fs-7 mb-0">فاطمه پاکنژاد</h6>
+                            </a>
+                            <p class="fs-7 m-0">وبلاگ نویس تغذیه</p>
+                        </div>
+                        <div class="author-sticky-corner-left-top"></div>
+                        <div class="author-sticky-corner-right-bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About section 2 -->
+    <section class="sec-2-about pt-100">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="mb-0 text-center text-anime-style-2">گالری تصاویر</h2>
+                    <p class="fs-56 m-0 text-anime-style-1">ما با تکیه بر استراتژی و خلاقیت، در ارائه نتایج تأثیرگذار و
+                        اصلاح‌شده تخصص داریم.</p>
+                </div>
+            </div>
+            <div class="row block-insta g-4">
+                <div class="col-lg-4">
+                    <div class="picture-insta position-relative">
+                        <div class="rounded-16 overflow-hidden hover-effect-1">
+                            <img class="image cover-image" src="{% static 'assets/imgs/page/img-118.png' %}"
+                                alt="magzin">
+                        </div>
+                        <a href="page-about.html#"
+                            class="btn-link position-absolute top-50 start-50 translate-middle icon-shape icon-xl rounded-circle p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
+                                fill="none">
+                                <path d="M14.5249 12.0503L22.1263 11.8735L21.9495 19.4749" stroke="#0E0E0F"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21.9498 12.0502L11.8735 22.1265" stroke="#0E0E0F" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="picture-insta position-relative">
+                        <div class="rounded-16 overflow-hidden hover-effect-1">
+                            <img class="image cover-image" src="{% static 'assets/imgs/page/img-119.png' %}"
+                                alt="magzin">
+                        </div>
+                        <a href="page-about.html#"
+                            class="btn-link position-absolute top-50 start-50 translate-middle icon-shape icon-xl rounded-circle p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
+                                fill="none">
+                                <path d="M14.5249 12.0503L22.1263 11.8735L21.9495 19.4749" stroke="#0E0E0F"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21.9498 12.0502L11.8735 22.1265" stroke="#0E0E0F" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="picture-insta position-relative">
+                        <div class="rounded-16 overflow-hidden hover-effect-1">
+                            <img class="image cover-image" src="{% static 'assets/imgs/page/img-120.png' %}"
+                                alt="magzin">
+                        </div>
+                        <a href="page-about.html#"
+                            class="btn-link position-absolute top-50 start-50 translate-middle icon-shape icon-xl rounded-circle p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
+                                fill="none">
+                                <path d="M14.5249 12.0503L22.1263 11.8735L21.9495 19.4749" stroke="#0E0E0F"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21.9498 12.0502L11.8735 22.1265" stroke="#0E0E0F" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="picture-insta position-relative">
+                        <div class="rounded-16 overflow-hidden hover-effect-1">
+                            <img class="image cover-image" src="{% static 'assets/imgs/page/img-121.png' %}"
+                                alt="magzin">
+                        </div>
+                        <a href="page-about.html#"
+                            class="btn-link position-absolute top-50 start-50 translate-middle icon-shape icon-xl rounded-circle p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
+                                fill="none">
+                                <path d="M14.5249 12.0503L22.1263 11.8735L21.9495 19.4749" stroke="#0E0E0F"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21.9498 12.0502L11.8735 22.1265" stroke="#0E0E0F" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="picture-insta position-relative">
+                        <div class="rounded-16 overflow-hidden hover-effect-1">
+                            <img class="image cover-image" src="{% static 'assets/imgs/page/img-122.png' %}"
+                                alt="magzin">
+                        </div>
+                        <a href="page-about.html#"
+                            class="btn-link position-absolute top-50 start-50 translate-middle icon-shape icon-xl rounded-circle p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
+                                fill="none">
+                                <path d="M14.5249 12.0503L22.1263 11.8735L21.9495 19.4749" stroke="#0E0E0F"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21.9498 12.0502L11.8735 22.1265" stroke="#0E0E0F" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="picture-insta position-relative">
+                        <div class="rounded-16 overflow-hidden hover-effect-1">
+                            <img class="image cover-image" src="{% static 'assets/imgs/page/img-123.png' %}"
+                                alt="magzin">
+                        </div>
+                        <a href="page-about.html#"
+                            class="btn-link position-absolute top-50 start-50 translate-middle icon-shape icon-xl rounded-circle p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
+                                fill="none">
+                                <path d="M14.5249 12.0503L22.1263 11.8735L21.9495 19.4749" stroke="#0E0E0F"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21.9498 12.0502L11.8735 22.1265" stroke="#0E0E0F" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container sec-padding">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="block-newsletter position-relative">
+                        <div class="newsletter text-center">
+                            <div class="decorate position-absolute top-0 start-0 m-4">
+                                <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M0.582044 11.7285C8.79451 13.4712 10.252 14.8614 12.125 22.7372C13.8067 14.8768 15.2308 13.4992 23.4018 11.8279C15.1894 10.0852 13.7319 8.69503 11.8589 0.81924C10.1769 8.67956 8.75306 10.0571 0.582044 11.7285Z"
+                                        fill="#0E0E0F" />
+                                </svg>
+                            </div>
+                            <div
+                                class="block-title d-flex align-items-center justify-content-center gap-1 fs-7 text-600">
+                                <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z"
+                                        stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M5.5 6.5L12 12.25L18.5 6.5" stroke="#0E0E0F" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span class="fs-7 fw-regular">به ما بپویندید</span>
+                            </div>
+                            <div class="block-title mb-5">
+                                <h3 class="my-3 text-anime-style-3 fs-3">
+                                    در خبرنامه ما عضو شوید <br class="d-none d-lg-block">
+                                    و هر هفته از آخرین اخبار مطلع شوید
+                                </h3>
+                            </div>
+                            <form action="page-about.html#" class="position-relative">
+                                <div
+                                    class="d-flex flex-wrap flex-md-nowrap justify-content-center gap-2 align-items-center mb-3">
+                                    <input class="form-control" type="text" placeholder="ایمیل">
+                                    <button class="btn btn-dark button-effect-1" type="submit">عضویت</button>
+                                </div>
+                                <span class="fs-7 fw-regular">شما فقط به‌روزرسانی‌های خبری معتبر را دریافت خواهید کرد -
+                                    بدون هرزنامه.</span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

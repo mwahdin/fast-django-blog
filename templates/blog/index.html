@@ -11,8 +11,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb list-unstyled d-flex flex-row gap-2 align-items-center m-0 pe-0 py-4">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-600 fs-7 hover-dark">صفحه
-                                    اصلی</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'website:main_page'  %}" class="text-600 fs-7 hover-dark">صفحه اصلی</a></li>
                             <li class="breadcrumb-item">
                                 <span class="icon-shape icon-xxs">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"
@@ -87,12 +86,12 @@
             <div class="row g-4 mt-4">
                 <!-- prettier-ignore -->
                 {% for post in posts %}
-                {% if post.status == 1 %}
+                {% if post.status == 'PB' %}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="article card-7">
                         <div class="card-body">
                             <div class="card-corner">
-                                <a href="{{post.id}}" class="arrow-box">
+                                <a href="{% url 'blog:post_detail' post.slug %}" class="arrow-box">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none">
                                         <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
@@ -124,19 +123,24 @@
                                         </svg>
                                     </a> -->
                                 </div>
-                                <a href="{% url 'blog:single' pid=post.id %}" class="hover-underline">
+                                <a href="{% url 'blog:post_detail' post.slug %}" class="hover-underline">
 
                                     <h6 class="card-title mb-4">{{post.title}}</h6>
 
                                 </a>
                                 <div class="position-relative card-img">
                                     <div class="hover-effect-30 rounded-16 overflow-hidden">
-                                        <a href="{{post.id}}">
-                                            <img class=" cover-image w-100 h-100"
-                                                src="{{post.image.url}}" alt="magzin">
+                                        <a href="{% url 'blog:post_detail' post.slug %}">
+                                            {% if post.image %}
+                                            <img class=" cover-image w-100 h-100" src="{{post.image.url}}" alt="magzin">
+                                            {% else %}
+                                            <div class="w-100 h-100 bg-secondary d-flex align-items-center justify-content-center text-white py-5" style="min-height: 200px;">
+                                                بدون تصویر
+                                            </div>
+                                            {% endif %}
                                         </a>
                                     </div>
-                                    <a href="{{post.id}}"
+                                    <a href="{% url 'blog:post_detail' post.slug %}"
                                         class="d-none play-btn popup-video z-2 rounded-circle icon-shape icon-xl position-absolute top-50 start-50 translate-middle">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none">
