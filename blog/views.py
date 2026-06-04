@@ -1,10 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
-from .models import Post
+from .models import Post, User
+
 
 # Create your views here.
-class AuthorView(TemplateView):
-    template_name = 'blog/author.html'
+def author_posts(request, username):
+    author = get_object_or_404(User, username=username)
+    
+    posts = Post.objects.filter(author=author, status='published').order_by('-created_at')
+    
+    context = {
+        'author': author,
+        'posts': posts,
+    }
+    
+    return render(request, 'blog/author_page.html', context)
 
 
 class PostListView(ListView):
@@ -19,7 +29,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/single.html'
-    context_objeect_name = 'post'
+    context_object_name = 'post'
 
 class PostCreateView(CreateView):
     pass

@@ -8,5 +8,6 @@ urlpatterns = [
     path('author', AuthorView.as_view(), name='author_page'),
     path('create/', PostCreateView.as_view(), name='post_create'),
     path('<slug:slug>/', PostDetailView.as_view(), name='post_detail'),
+    path('author/<str:username>/', AuthorView.as_view(), name='author_page'),
 ]
 
