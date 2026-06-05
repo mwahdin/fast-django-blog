@@ -27,9 +27,6 @@ class AuthorView(TemplateView):
         context['author'] = self.author
         return context
         
-    
-    
-
 
 class PostListView(ListView):
     model = Post
