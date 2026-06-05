@@ -4,17 +4,31 @@ from .models import Post, User
 
 
 # Create your views here.
-def author_posts(request, username):
-    author = get_object_or_404(User, username=username)
+# def author_posts(request, username):
+#     author = get_object_or_404(User, username=username, is_active=True)
+#     posts = Post.objects.filter(author=author, status=Post.Status.PUBLISHED).order_by('-published_date')
+#     context = {
+#         "author" : author,
+#         "posts" : posts
+#     }
     
-    posts = Post.objects.filter(author=author, status='published').order_by('-created_at')
+#     return render(request, 'blog/author_page.html', context)
+class AuthorView(TemplateView):
+    model = Post
+    template_name = 'blog/author.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        self.author = get_object_or_404(User, username=User.kwargs['username'])
+        return Post.objects.filter(self.author, status=Post.Status.PUBLISHED).order_by('-published_date')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context['author'] = self.author
+        return context
+        
     
-    context = {
-        'author': author,
-        'posts': posts,
-    }
     
-    return render(request, 'blog/author_page.html', context)
 
 
 class PostListView(ListView):
