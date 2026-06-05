@@ -12,7 +12,7 @@
                             src="{% static 'assets/imgs/template/author/author-19.png' %}" alt="magzin">
                     </div>
                     <div class="card-body text-center">
-                        <h3 class="mb-3">فاطمه حسینی</h3>
+                        <h3 class="mb-3">{{author.get_full_name}}</h3>
                         <p class="mb-0 fs-7">
                             تو باید بنویسی چون عاشق شکل داستان‌ها و جملات <br class="d-none d-lg-block">
                             و خلق کلمات مختلف روی یک صفحه هستی.
@@ -86,8 +86,7 @@
                                     <a href="page-author.html#" class="badge bg-1 fs-8">موسیقی</a>
                                 </div>
                                 <a href="single-3.html" class="hover-underline">
-                                    <h4 class="card-title mb-0 mt-3 fs-4">تکامل هنر مدرن: روندهای شکل‌دهنده دنیای
-                                        خلاق/h4>
+                                    <h4 class="card-title mb-0 mt-3 fs-4">تکامل هنر مدرن: روندهای شکل‌دهنده دنیای خلاق</h4>
                                 </a>
                                 <p class="card-text text-600 fs-7 mb-0 mt-3 text-truncate-3">مد شهری که زمانی به عنوان
                                     یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
@@ -97,8 +96,9 @@
                                         class="author d-flex align-items-center gap-2">
                                         <img class="avatar avatar-md rounded-circle"
                                             src="{% static 'assets/imgs/template/author/author-9.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">سونیا مهدوی</span>
+                                        <span class="fs-7 text-dark fw-regular">{{post.author}}</span>
                                     </a>
+
                                     <ul class="d-flex align-items-center gap-4 text-600 m-0 ps-3">
                                         <li>
                                             <p class="fs-8 m-0">13 دی، 1403</p>

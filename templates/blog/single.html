@@ -41,13 +41,16 @@
                             <div class="border-top"></div>
                             <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
                                 <a href="#" class="author d-flex align-items-center gap-2">
-                                    <img class="avatar avatar-md rounded-circle"
-                                        src="{% static 'assets/imgs/template/author/author-9.png' %}" alt="magzin" />
-                                    <span class="fs-7 text-dark fw-regular">{{post.author.get_full_name}}</span>
+                                {% if post.author.profile.image %}
+                                    <img class="avatar avatar-md rounded-circle" src="{{post.author.profile.image.url}}" alt={{post.author.profile.get_full_name_or_email}} />
+                                {% else %}
+                                    <img class="avatar avatar-md rounded-circle" src="{% static 'assets/imgs/template/author/default_profile.jpg.' %}" alt="default avatar" />
+                                {% endif %}
+                                    <span class="fs-7 text-dark fw-regular">{{post.author.profile.first_name}}</span>
                                 </a>
                                 <ul class="d-flex align-items-center gap-4 text-600 m-0 ps-3">
                                     <li>
-                                        <p class="fs-8 m-0">{{post.publish_date|date:"D M Y"}}</p>
+                                        <p class="fs-8 m-0">{{post.published_date|date:"Y/m/d"}}</p>
                                     </li>
                                 </ul>
                                 <div class="me-md-auto me-5 d-flex align-items-center gap-3 ms-5">
