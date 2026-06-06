@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
-from .models import Post, User
+from .models import Post, User, Category
 
 
 #return render(request, 'blog/author_page.html', context)
@@ -47,5 +47,30 @@ class PostDetailView(DetailView):
         return obj
         
 
-class PostCreateView(CreateView):
-    pass
+class AllCategoriesListView(ListView):
+    model = Category
+    template_name = 'blog/category.html'
+    context_object_name = 'category'
+
+    def get_queryset(self):
+        return Category.objects.annotate(approved_posts_count = Count('posts', filter=Q(posts__status=Post.Status.PUBLISHED))).order_by('name')
+
+
+
+    
+
+
+    
+class CategoryPostListView(ListView):
+    model = Post                        
+    template_name = 'blog/category.html' 
+    context_object_name = 'posts'       
+
+    def get_queryset(self):
+        self.category = get_object_or_404(Category, slug=self.kwargs['slug'])
+        return Post.objects.filter(categories=self.category, status=Post.Status.PUBLISHED).order_by('-publish_date')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = self.category 
+        return context
