@@ -3,24 +3,16 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Post, User
 
 
-# Create your views here.
-# def author_posts(request, username):
-#     author = get_object_or_404(User, username=username, is_active=True)
-#     posts = Post.objects.filter(author=author, status=Post.Status.PUBLISHED).order_by('-published_date')
-#     context = {
-#         "author" : author,
-#         "posts" : posts
-#     }
-    
-#     return render(request, 'blog/author_page.html', context)
+#return render(request, 'blog/author_page.html', context)
 class AuthorView(TemplateView):
     model = Post
     template_name = 'blog/author.html'
     context_object_name = 'posts'
 
     def get_queryset(self):
-        self.author = get_object_or_404(User, username=User.kwargs['username'])
-        return Post.objects.filter(self.author, status=Post.Status.PUBLISHED).order_by('-published_date')
+        
+        self.author = get_object_or_404(User, username=self.kwargs['username'])
+        return Post.objects.filter(author=self.author, status=Post.Status.PUBLISHED).order_by('-published_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
@@ -47,8 +39,8 @@ class PostDetailView(DetailView):
         obj = super().get_object(queryset=safe_queryset)
         viewed_posts = self.request.session.get('viewed_posts', [])
         if obj.id not in viewed_posts:
-            obj.views_count += 1
-            obj.save(update_fields=['views_count'])
+            obj.counted_views += 1
+            obj.save(update_fields=['counted_views'])
             viewed_posts.append(obj.id)
             self.request.session['viewed_posts'] = viewed_posts
             self.request.session.modified = True
