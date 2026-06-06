@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+import math
 
 User = get_user_model()
 
@@ -41,6 +42,14 @@ class Post(models.Model):
     created_date = models.DateTimeField(_('created date'), auto_now_add=True)
     updated_date = models.DateTimeField(_('updated date'), auto_now=True)
 
+    content = models.TextField() 
+
+    @property
+    def read_time(self):
+        word_count = len(self.content.split())
+        minutes = math.ceil(word_count / 200)
+        return minutes
+    
     class Meta:
         verbose_name = _('post')
         verbose_name_plural = _('posts')
