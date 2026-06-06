@@ -32,7 +32,7 @@ class Post(models.Model):
     slug = models.SlugField(_('slug'), max_length=255, unique=True)
     content = models.TextField(_('content'))
     snippet = models.CharField(_('snippet'), max_length=400, blank=True)
-    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, related_name='posts', verbose_name=_('category'))
+    category = models.ManyToManyField('Category', null=True, related_name='posts', verbose_name=_('category'))
     
     publish_date = models.DateTimeField(_('publish date'), blank=True, null=True)
     
