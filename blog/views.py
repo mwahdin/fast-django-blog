@@ -35,12 +35,25 @@ class PostListView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Post.objects.filter(status=Post.Status.PUBLISHED).order_by('-published_date')
+        return Post.objects.filter(status=Post.Status.PUBLISHED).order_by('-publish_date')
     
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/single.html'
     context_object_name = 'post'
+
+    def get_object(self, queryset = None):
+        safe_queryset = Post.objects.filter(status=Post.Status.PUBLISHED)
+        obj = super().get_object(queryset=safe_queryset)
+        viewed_posts = self.request.session.get('viewed_posts', [])
+        if obj.id not in viewed_posts:
+            obj.views_count += 1
+            obj.save(update_fields=['views_count'])
+            viewed_posts.append(obj.id)
+            self.request.session['viewed_posts'] = viewed_posts
+            self.request.session.modified = True
+        return obj
+        
 
 class PostCreateView(CreateView):
     pass
