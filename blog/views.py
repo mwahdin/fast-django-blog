@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Post, User, Category
+from django.db.models import Count, Q
 
 
 #return render(request, 'blog/author_page.html', context)
@@ -53,7 +54,7 @@ class AllCategoriesListView(ListView):
     context_object_name = 'category'
 
     def get_queryset(self):
-        return Category.objects.annotate(approved_posts_count = Count('posts', filter=Q(posts__status=Post.Status.PUBLISHED))).order_by('name')
+        return Category.objects.annotate(approved_post_count= Count('posts', filter=Q(post__status=Post.Status.PUBLISHED))).order_by('-publish_date')
 
 
 
