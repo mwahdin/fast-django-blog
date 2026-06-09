@@ -4,16 +4,18 @@ from .models import Post, User, Category
 from django.db.models import Count, Q
 
 
-#return render(request, 'blog/author_page.html', context)
-class AuthorView(TemplateView):
+class AuthorView(ListView): 
     model = Post
-    template_name = 'blog/author.html'
+    template_name = 'blog/author.html' 
     context_object_name = 'posts'
+    paginate_by = 6 
 
     def get_queryset(self):
-        
         self.author = get_object_or_404(User, username=self.kwargs['username'])
-        return Post.objects.filter(author=self.author, status=Post.Status.PUBLISHED).order_by('-published_date')
+        return Post.objects.filter(
+            author=self.author, 
+            status=Post.Status.PUBLISHED
+        ).order_by('-publish_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
@@ -51,15 +53,12 @@ class PostDetailView(DetailView):
 class AllCategoriesListView(ListView):
     model = Category
     template_name = 'blog/category.html'
-    context_object_name = 'category'
+    context_object_name = 'categories'
 
     def get_queryset(self):
-        return Category.objects.annotate(approved_post_count= Count('posts', filter=Q(post__status=Post.Status.PUBLISHED))).order_by('-publish_date')
-
-
-
-    
-
+        return Category.objects.annotate(
+            approved_posts_count=Count('posts', filter=Q(posts__status=Post.Status.PUBLISHED))
+        ).order_by('name')
 
     
 class CategoryPostListView(ListView):
@@ -69,7 +68,7 @@ class CategoryPostListView(ListView):
 
     def get_queryset(self):
         self.category = get_object_or_404(Category, slug=self.kwargs['slug'])
-        return Post.objects.filter(categories=self.category, status=Post.Status.PUBLISHED).order_by('-publish_date')
+        return Post.objects.filter(category=self.category, status=Post.Status.PUBLISHED).order_by('-publish_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
