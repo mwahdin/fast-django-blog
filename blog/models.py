@@ -7,6 +7,8 @@ User = get_user_model()
 
 class Category(models.Model):
     name = models.CharField(_("name"), max_length=200, unique=True)
+    content = models.TextField(_('content'))
+    image = models.ImageField(_('image'), null=True, blank=True, upload_to='category_images/')
     slug = models.SlugField(_('slug'), max_length=200, unique=True)
     
     class Meta:
