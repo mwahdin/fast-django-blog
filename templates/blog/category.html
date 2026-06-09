@@ -1,0 +1,581 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <main>
+    <!-- prettier-ignore -->
+    <!-- Breadcumb -->
+
+    <section class="sec-breadcumb">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb list-unstyled d-flex flex-row gap-2 align-items-center m-0 pe-0 py-4">
+                <li class="breadcrumb-item">
+                  <a href="index.html" class="text-600 fs-7 hover-dark">صفحه اصلی</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <span class="icon-shape icon-xxs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                      <path d="M6.125 4.5625L9.5625 7.84375L6.125 11.125" stroke="#626568" stroke-width="0.9375" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </li>
+                <li class="breadcrumb-item active text-dark fs-7" aria-current="page">طرح بندی نسخه 1</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="row align-items-end">
+          <div class="col-lg-6 col-12">
+            <div class="title">
+              <h4 class="mb-0 ds-5">
+                {% if category %}
+                  <span class="text-anime-style-2">دسته‌بندی مقالات: {{cat.name}}</span>
+                {% else %}
+                  <span class="text-anime-style-2">دسته‌بندی مقالات</span>
+                {% endif %}
+                {% comment %} <span class="text-600 fw-regular fs-6 bg-white rounded-8 p-2">187 خبر</span> {% endcomment %}
+              </h4>
+              {% if category %}
+                <p class="fs-7 mb-0 text-anime-style-1">{{category.content}}</p>
+              {% else %}
+                <p class="fs-7 mb-0 text-anime-style-1">دسترسی آسان به محتوای وبلاگ</p>
+              {% endif %}
+
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="d-none d-lg-flex justify-content-end">
+              <div class="block-author align-items-center position-relative">
+                <span class="position-absolute bottom-100 start-0 p-2 fs-8">نویسندگان برتر</span>
+                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-5 hover-up">
+                  <a href="page-author.html"><img src="assets/imgs/template/author/author-11.png" alt="magzin" /></a>
+                </div>
+                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-4 hover-up">
+                  <a href="page-author.html"><img src="assets/imgs/template/author/author-12.png" alt="magzin" /></a>
+                </div>
+                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-3 hover-up">
+                  <a href="page-author.html"><img src="assets/imgs/template/author/author-13.png" alt="magzin" /></a>
+                </div>
+                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-1 hover-up">
+                  <a href="page-author.html"><img src="assets/imgs/template/author/author-14.png" alt="magzin" /></a>
+                </div>
+                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-0 hover-up">
+                  <a href="page-author.html"><img src="assets/imgs/template/author/author-15.png" alt="magzin" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Archive 1 Section 1 -->
+    <section class="sec-1-archive-1">
+      <div class="container">
+        <div class="row g-4 mt-4">
+          <!-- prettier-ignore -->
+{% if category %}
+    {% for post in posts %}
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="article card-7">
+            <div class="card-body">
+                <div class="card-corner">
+                    <a href="{% url 'blog:post_detail' post.slug %}" class="arrow-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="curve-one"></div>
+                    <div class="curve-two"></div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
+                        <ul class="d-flex align-items-center text-600 m-0 pe-3">
+                            <li>
+                                <p class="fs-8 m-0">انتشار: {{ post.publish_date|date:"Y/m/d" }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'blog:post_detail' post.slug %}" class="hover-underline">
+                        <h6 class="card-title mb-4">{{ post.title }}</h6>
+                    </a>
+                    <div class="position-relative card-img">
+                        <div class="hover-effect-30 rounded-16 overflow-hidden">
+                            <a href="{% url 'blog:post_detail' post.slug %}">
+                              {% if post.image %}
+                                <img class="cover-image w-100 h-100" src="{{post.image.url}}" alt="{{ post.title }}">
+                              {% else %}
+                                <img class="cover-image w-100 h-100" src="{% static "assets/imgs/page/default.png" %}}" alt="{{ post.title }}">
+                              {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                    <p class="card-text text-600 fs-7 mb-0 mt-4 ps-5 text-truncate-3">{{ post.snippet|default:"بدون خلاصه..." }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center py-5">
+        <p class="text-muted">هنوز هیچ مقاله‌ای در این دسته‌بندی منتشر نشده است.</p>
+    </div>
+    {% endfor %}
+
+{% else %}
+    {% for cat in categories %}
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="article card-7">
+            <div class="card-body">
+                <div class="card-corner">
+                    <a href="{% url 'blog:category_posts' cat.slug %}" class="arrow-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <div class="curve-one"></div>
+                    <div class="curve-two"></div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
+                        <ul class="d-flex align-items-center text-600 m-0 pe-3">
+                            <li>
+                                <p class="fs-8 m-0">تعداد مقالات: {{ cat.approved_posts_count }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'blog:category_posts' cat.slug %}" class="hover-underline">
+                        <h6 class="card-title mb-4">{{ cat.name }}</h6>
+                    </a>
+                    <div class="position-relative card-img">
+                        <div class="hover-effect-30 rounded-16 overflow-hidden">
+                            <a href="{% url 'blog:category_posts' cat.slug %}">
+                              {% if cat.image %}
+                                <img class="cover-image w-100 h-100" src="{{cat.image.url}}" alt="{{ cat.name }}">
+                              {% else %}
+                                <img class="cover-image w-100 h-100" src="{% static "assets/imgs/page/default.png" %}" alt="default image for category">
+                              {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                    <p class="card-text text-600 fs-7 mb-0 mt-4 ps-5 text-truncate-3">{{cat.content}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center py-5">
+        <p class="text-muted">هیچ موضوعی تعریف نشده است.</p>
+    </div>
+    {% endfor %}
+{% endif %}
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="newsletter">
+              <div class="decorate-1" data-background="assets/imgs/template/decorate-1.png"></div>
+              <div class="">
+                <div class="d-flex align-items-center">
+                  <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5.5 6.5L12 12.25L18.5 6.5" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span class="fs-7 fw-semibold">خبرنامه</span>
+                </div>
+                <h5 class="my-2">
+                  به روز رسانی هفتگی؟ <br class="d-none d-lg-block" />
+                  پایگاه تحلیلی خبرهای جهانی عضویت رایگان
+                </h5>
+                <p class="m-0 fs-7">شما فقط به‌روزرسانی‌ها را بدون هیچ اسپمی دریافت خواهید کرد و مواردی که برای آن ثبت‌نام کرده‌اید.</p>
+              </div>
+              <form action="archive-1.html#" class="w-auto">
+                <input type="email" class="form-control fs-7 mb-2 w-100" placeholder="ایمیل" />
+                <button type="submit" class="btn btn-dark w-100 button-effect-1">عضویت</button>
+              </form>
+              <div class="d-flex align-items-center gap-3">
+                <a href="archive-1.html#" class="text-600 fs-8">شرایط و قوانین</a>
+                <a href="archive-1.html#" class="text-600 fs-8">حریم خصوصی</a>
+              </div>
+            </div>
+          </div>
+          <!-- prettier-ignore -->
+
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="block-ads bg-200">
+              <div class="banner-ads" data-background="assets/imgs/page/bg-archive1.png">
+                <img src="assets/imgs/template/logo/logo-gradient.svg" alt="magzin" />
+                <h4 class="mt-3">
+                  مجله و وبلاگ مدرن <br class="d-none d-lg-block" />
+                  با <span>عملکردی</span> عالی
+                </h4>
+                <div class="d-flex flex-wrap align-items-center gap-lg-4 gap-3">
+                  <div class="tag-ads">
+                    <img src="assets/imgs/template/icons/icon-1.svg" alt="magzin" />
+                    <div class="tag-ads__content">
+                      <h6 class="fw-medium fs-18 m-0">Google</h6>
+                      <p class="fs-7 m-0">بینش‌های سرعت صفحه</p>
+                    </div>
+                  </div>
+                  <div class="tag-ads">
+                    <img src="assets/imgs/template/icons/icon-2.svg" alt="magzin" />
+                    <div class="tag-ads__content">
+                      <h6 class="fw-medium fs-18 m-0">Core Web Vitals</h6>
+                      <p class="fs-7 m-0">ارزیابی بالا</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4 mt-1">
+          <!-- prettier-ignore -->
+          <div class="col-lg-4 col-md-6 col-12">
+                        <div class="article card-7">
+                            <div class="card-body">
+                                <div class="card-corner">
+                                    <a href="single-3.html" class="arrow-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                    <div class="curve-one"></div>
+                                    <div class="curve-two"></div>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
+                                        <a href="archive-1.html#" class="badge bg-1 fs-8">سبک زندگی</a>
+                                        <a href="archive-1.html#" class="badge bg-3 fs-8">پزشکی</a>
+                                        <ul class="d-flex align-items-center text-600 m-0 pe-3">
+                                            <li>
+                                                <p class="fs-8 m-0">6 دقیقه مطالعه</p>
+                                            </li>
+                                        </ul>
+                                        <a href="archive-1.html#" class="book-mark me-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z" stroke="#626568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <a href="single-3.html" class="hover-underline">
+                                        <h6 class="card-title mb-4">گالری پوشاک: ترکیب هنر با طراحی مدرن</h6>
+                                    </a>
+                                    <div class="position-relative card-img">
+                                        <div class="hover-effect-30 rounded-16 overflow-hidden">
+                                            <a href="single-3.html">
+                                                <img class=" cover-image w-100 h-100" src="assets/imgs/page/img-86.png" alt="magzin">
+                                            </a>
+                                        </div>
+                                        <a href="archive-1.html#" class="d-none play-btn popup-video z-2 rounded-circle icon-shape icon-xl position-absolute top-50 start-50 translate-middle">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path d="M7.6464 4.96873L18.1434 10.2052C19.6152 10.9418 19.6148 13.0388 18.1428 13.7748L7.6457 19.0391C6.3158 19.704 4.75 18.7388 4.75 17.2541L4.75 6.75335C4.75 5.26832 6.3165 4.30314 7.6464 4.96873Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <p class="card-text text-600 fs-7 mb-0 mt-4 ps-5 text-truncate-3">وقتی ضربات قلم‌مو الهام‌بخش خطوط حاشیه و بوم‌ها می‌شوند و به سیلوئت‌ها شکل می‌دهند، نتیجه، تلفیقی چشمگیر از هنر تجسمی و طراحی مد است.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="article card-7">
+              <div class="card-body">
+                <div class="card-corner">
+                  <a href="single-3.html" class="arrow-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                  <div class="curve-one"></div>
+                  <div class="curve-two"></div>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
+                    <a href="archive-1.html#" class="badge bg-1 fs-8">سبک زندگی</a>
+                    <a href="archive-1.html#" class="badge bg-3 fs-8">پزشکی</a>
+                    <ul class="d-flex align-items-center text-600 m-0 pe-3">
+                      <li>
+                        <p class="fs-8 m-0">6 دقیقه مطالعه</p>
+                      </li>
+                    </ul>
+                    <a href="archive-1.html#" class="book-mark me-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z" stroke="#626568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <a href="single-3.html" class="hover-underline"><h6 class="card-title mb-4">آیین‌های سلامتی برای یک زندگی پرسرعت</h6></a>
+                  <div class="position-relative card-img">
+                    <div class="hover-effect-30 rounded-16 overflow-hidden">
+                      <a href="single-3.html"><img class="cover-image w-100 h-100" src="assets/imgs/page/img-98.png" alt="magzin" /></a>
+                    </div>
+                    <a href="archive-1.html#" class="d-none play-btn popup-video z-2 rounded-circle icon-shape icon-xl position-absolute top-50 start-50 translate-middle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7.6464 4.96873L18.1434 10.2052C19.6152 10.9418 19.6148 13.0388 18.1428 13.7748L7.6457 19.0391C6.3158 19.704 4.75 18.7388 4.75 17.2541L4.75 6.75335C4.75 5.26832 6.3165 4.30314 7.6464 4.96873Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <p class="card-text text-600 fs-7 mb-0 mt-4 ps-5 text-truncate-3">با افزایش نگرانی‌های اقلیمی، بشقاب‌های ما به ابزارهای قدرتمندی برای تغییر تبدیل می‌شوند. تغذیه پایدار - با محوریت انتخاب‌های گیاهی، منابع محلی و کاهش ضایعات مواد غذایی.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="article card-7">
+              <div class="card-body">
+                <div class="card-corner">
+                  <a href="single-3.html" class="arrow-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                  <div class="curve-one"></div>
+                  <div class="curve-two"></div>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
+                    <a href="archive-1.html#" class="badge bg-2 fs-8">پزشکی</a>
+                    <a href="archive-1.html#" class="badge d-none fs-8"></a>
+                    <ul class="d-flex align-items-center text-600 m-0 pe-3">
+                      <li>
+                        <p class="fs-8 m-0">6 دقیقه مطالعه</p>
+                      </li>
+                    </ul>
+                    <a href="archive-1.html#" class="book-mark me-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z" stroke="#626568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <a href="single-3.html" class="hover-underline"><h6 class="card-title mb-4">مد، نکات، روندها و سبک سلبریتی‌ها</h6></a>
+                  <div class="position-relative card-img">
+                    <div class="hover-effect-30 rounded-16 overflow-hidden">
+                      <a href="single-3.html"><img class="cover-image w-100 h-100" src="assets/imgs/page/img-87.png" alt="magzin" /></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=_H9g5p9IP6E" class="d-flex play-btn popup-video z-2 rounded-circle icon-shape icon-xl position-absolute top-50 start-50 translate-middle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7.6464 4.96873L18.1434 10.2052C19.6152 10.9418 19.6148 13.0388 18.1428 13.7748L7.6457 19.0391C6.3158 19.704 4.75 18.7388 4.75 17.2541L4.75 6.75335C4.75 5.26832 6.3165 4.30314 7.6464 4.96873Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <p class="card-text text-600 fs-7 mb-0 mt-4 ps-5 text-truncate-3">با افزایش نگرانی‌های اقلیمی، بشقاب‌های ما به ابزارهای قدرتمندی برای تغییر تبدیل می‌شوند. تغذیه پایدار - با محوریت انتخاب‌های گیاهی، منابع محلی و کاهش ضایعات مواد غذایی.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="article card-7">
+              <div class="card-body">
+                <div class="card-corner">
+                  <a href="single-3.html" class="arrow-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                  <div class="curve-one"></div>
+                  <div class="curve-two"></div>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
+                    <a href="archive-1.html#" class="badge bg-2 fs-8">پزشکی</a>
+                    <a href="archive-1.html#" class="badge d-none fs-8"></a>
+                    <ul class="d-flex align-items-center text-600 m-0 pe-3">
+                      <li>
+                        <p class="fs-8 m-0">6 دقیقه مطالعه</p>
+                      </li>
+                    </ul>
+                    <a href="archive-1.html#" class="book-mark me-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z" stroke="#626568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <a href="single-3.html" class="hover-underline"><h6 class="card-title mb-4">بازاندیشی مصرف در عصر مینیمالیسم</h6></a>
+                  <div class="position-relative card-img">
+                    <div class="hover-effect-30 rounded-16 overflow-hidden">
+                      <a href="single-3.html"><img class="cover-image w-100 h-100" src="assets/imgs/page/img-100.png" alt="magzin" /></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=_H9g5p9IP6E" class="d-flex play-btn popup-video z-2 rounded-circle icon-shape icon-xl position-absolute top-50 start-50 translate-middle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7.6464 4.96873L18.1434 10.2052C19.6152 10.9418 19.6148 13.0388 18.1428 13.7748L7.6457 19.0391C6.3158 19.704 4.75 18.7388 4.75 17.2541L4.75 6.75335C4.75 5.26832 6.3165 4.30314 7.6464 4.96873Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <p class="card-text text-600 fs-7 mb-0 mt-4 ps-5 text-truncate-3">وقتی ضربات قلم‌مو الهام‌بخش خطوط حاشیه و بوم‌ها می‌شوند و به سیلوئت‌ها شکل می‌دهند، نتیجه، تلفیقی چشمگیر از هنر تجسمی و طراحی مد است.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="article card-7">
+              <div class="card-body">
+                <div class="card-corner">
+                  <a href="single-3.html" class="arrow-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                  <div class="curve-one"></div>
+                  <div class="curve-two"></div>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
+                    <a href="archive-1.html#" class="badge bg-3 fs-8">سیاسی</a>
+                    <a href="archive-1.html#" class="badge d-none fs-8"></a>
+                    <ul class="d-flex align-items-center text-600 m-0 pe-3">
+                      <li>
+                        <p class="fs-8 m-0">6 دقیقه مطالعه</p>
+                      </li>
+                    </ul>
+                    <a href="archive-1.html#" class="book-mark me-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z" stroke="#626568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <a href="single-3.html" class="hover-underline"><h6 class="card-title mb-4">اهمیت فرهنگی رقص در جوامع مختلف</h6></a>
+                  <div class="position-relative card-img">
+                    <div class="hover-effect-30 rounded-16 overflow-hidden">
+                      <a href="single-3.html"><img class="cover-image w-100 h-100" src="assets/imgs/page/img-88.png" alt="magzin" /></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=_H9g5p9IP6E" class="d-flex play-btn popup-video z-2 rounded-circle icon-shape icon-xl position-absolute top-50 start-50 translate-middle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7.6464 4.96873L18.1434 10.2052C19.6152 10.9418 19.6148 13.0388 18.1428 13.7748L7.6457 19.0391C6.3158 19.704 4.75 18.7388 4.75 17.2541L4.75 6.75335C4.75 5.26832 6.3165 4.30314 7.6464 4.96873Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <p class="card-text text-600 fs-7 mb-0 mt-4 ps-5 text-truncate-3">با افزایش نگرانی‌های اقلیمی، بشقاب‌های ما به ابزارهای قدرتمندی برای تغییر تبدیل می‌شوند. تغذیه پایدار - با محوریت انتخاب‌های گیاهی، منابع محلی و کاهش ضایعات مواد غذایی.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="article card-7">
+              <div class="card-body">
+                <div class="card-corner">
+                  <a href="single-3.html" class="arrow-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                  <div class="curve-one"></div>
+                  <div class="curve-two"></div>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
+                    <a href="archive-1.html#" class="badge bg-3 fs-8">سیاسی</a>
+                    <a href="archive-1.html#" class="badge d-none fs-8"></a>
+                    <ul class="d-flex align-items-center text-600 m-0 pe-3">
+                      <li>
+                        <p class="fs-8 m-0">6 دقیقه مطالعه</p>
+                      </li>
+                    </ul>
+                    <a href="archive-1.html#" class="book-mark me-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z" stroke="#626568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <a href="single-3.html" class="hover-underline"><h6 class="card-title mb-4">بررسی رابطه بین هنر و فناوری</h6></a>
+                  <div class="position-relative card-img">
+                    <div class="hover-effect-30 rounded-16 overflow-hidden">
+                      <a href="single-3.html"><img class="cover-image w-100 h-100" src="assets/imgs/page/img-99.png" alt="magzin" /></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=_H9g5p9IP6E" class="d-flex play-btn popup-video z-2 rounded-circle icon-shape icon-xl position-absolute top-50 start-50 translate-middle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7.6464 4.96873L18.1434 10.2052C19.6152 10.9418 19.6148 13.0388 18.1428 13.7748L7.6457 19.0391C6.3158 19.704 4.75 18.7388 4.75 17.2541L4.75 6.75335C4.75 5.26832 6.3165 4.30314 7.6464 4.96873Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                  <p class="card-text text-600 fs-7 mb-0 mt-4 ps-5 text-truncate-3">با افزایش نگرانی‌های اقلیمی، بشقاب‌های ما به ابزارهای قدرتمندی برای تغییر تبدیل می‌شوند. تغذیه پایدار - با محوریت انتخاب‌های گیاهی، منابع محلی و کاهش ضایعات مواد غذایی.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <!-- prettier-ignore -->
+          <div class="col-12 d-flex justify-content-start align-items-center">
+                        <nav>
+                            <ul class="pagination gap-2">
+                                <li class="page-item">
+                                    <a class="icon-lg pagination_item rounded-circle icon-shape" href="archive-1.html#" aria-label="Previous">
+                                        <svg class="" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                            <path d="M12.5 6.5L17.2143 11L12.5 15.5" stroke="#0E0E0F" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.9999 11H4.78564" stroke="#0E0E0F" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="icon-lg pagination_item rounded-circle icon-shape fs-18 current" href="archive-1.html#"> 1 </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="icon-lg pagination_item rounded-circle icon-shape fs-18" href="archive-1.html#"> 2 </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="icon-lg pagination_item rounded-circle icon-shape fs-18" href="archive-1.html#"> 3 </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="icon-lg pagination_item rounded-circle icon-shape fs-18" href="archive-1.html#"> 4 </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="icon-lg pagination_item rounded-circle icon-shape fs-18" href="archive-1.html#"> 5 </a>
+                                </li>
+                                <li class="page-item d-none d-md-block">
+                                    <a class="icon-lg pagination_item rounded-circle icon-shape fs-18" href="archive-1.html#"> ... </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="icon-lg pagination_item rounded-circle icon-shape" href="archive-1.html#" aria-label="Next">
+										<svg class="" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                            <path d="M9.49993 6.5L4.78564 11L9.49993 15.5" stroke="#0E0E0F" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M17.2143 11H5" stroke="#0E0E0F" stroke-width="1.28571" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+        </div>
+      </div>
+    </section>
+    <!-- Home 4 Section 6 -->
+    <section class="sec-6-home-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <div class="block-newsletter bg-transparent border-0 position-relative">
+              <div class="newsletter text-center">
+                <div class="block-title">
+                  <h4 class="mb-3 text-anime-style-3">عضویت در خبرنامه</h4>
+                  <p class="mb-4">
+                    برای دریافت جدیدترین مطالب در خبرنامه ایمیلی ما عضو شوید <br class="d-none d-lg-block" />
+                    پست‌ها مستقیماً به ایمیل شما ارسال می‌شوند.
+                  </p>
+                </div>
+                <form action="archive-1.html#" class="position-relative">
+                  <div class="d-flex flex-wrap flex-md-nowrap justify-content-center gap-2 align-items-center mb-4">
+                    <input class="form-control" type="text" placeholder="ایمیل" />
+                    <button class="btn btn-dark button-effect-1" type="submit">عضویت</button>
+                  </div>
+                  <span class="fs-7 fw-regular">شما فقط به‌روزرسانی‌های خبری معتبر را دریافت خواهید کرد - بدون هرزنامه.</span>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
