@@ -46,28 +46,31 @@
 
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="d-none d-lg-flex justify-content-end">
-              <div class="block-author align-items-center position-relative">
-                <span class="position-absolute bottom-100 start-0 p-2 fs-8">نویسندگان برتر</span>
-                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-5 hover-up">
-                  <a href="page-author.html"><img src="assets/imgs/template/author/author-11.png" alt="magzin" /></a>
-                </div>
-                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-4 hover-up">
-                  <a href="page-author.html"><img src="assets/imgs/template/author/author-12.png" alt="magzin" /></a>
-                </div>
-                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-3 hover-up">
-                  <a href="page-author.html"><img src="assets/imgs/template/author/author-13.png" alt="magzin" /></a>
-                </div>
-                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-1 hover-up">
-                  <a href="page-author.html"><img src="assets/imgs/template/author/author-14.png" alt="magzin" /></a>
-                </div>
-                <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white z-0 hover-up">
-                  <a href="page-author.html"><img src="assets/imgs/template/author/author-15.png" alt="magzin" /></a>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="col-lg-6">
+  <div class="d-none d-lg-flex justify-content-end">
+    <div class="block-author align-items-center position-relative">
+      <span class="position-absolute bottom-100 start-0 p-2 fs-8">نویسندگان برتر</span>
+      
+      {% for author in top_author %}
+        <div class="avatar avatar-md rounded-circle overflow-hidden border-3 border-white hover-up" 
+             style="z-index: {{ forloop.revcounter0 }};">
+          
+          <a href="#">
+            {% if author.profile.image %}
+              <img src="{{ author.profile.image.url }}" alt="{{ author.username }}" />
+            {% else %}
+              <img src="/assets/imgs/template/author/author-11.png" alt="{{ author.username }}" />
+            {% endif %}
+          </a>
+
+        </div>
+      {% empty %}
+        <span class="text-muted fs-8">نویسنده‌ای یافت نشد.</span>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </section>
