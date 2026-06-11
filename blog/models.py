@@ -35,7 +35,7 @@ class Post(models.Model):
     slug = models.SlugField(_('slug'), max_length=255, unique=True, allow_unicode=True)
     content = models.TextField(_('content'))
     snippet = models.CharField(_('snippet'), max_length=400, blank=True)
-    category = models.ManyToManyField('Category', null=True, related_name='posts', verbose_name=_('category'))
+    category = models.ManyToManyField('Category', blank=True, related_name='posts', verbose_name=_('category'))
     
     publish_date = models.DateTimeField(_('publish date'), blank=True, null=True)
     
@@ -43,11 +43,12 @@ class Post(models.Model):
     
     created_date = models.DateTimeField(_('created date'), auto_now_add=True)
     updated_date = models.DateTimeField(_('updated date'), auto_now=True)
-
-    content = models.TextField() 
+    
 
     @property
     def read_time(self):
+        if not self.content:
+            return 0
         word_count = len(self.content.split())
         minutes = math.ceil(word_count / 200)
         return minutes
