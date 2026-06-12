@@ -7,7 +7,7 @@ User = get_user_model()
 
 def top_authors_processor(request):
     top_author = User.objects.annotate(
-        published_post_count=Count('posts', filter=Q(posts__status=Post.Status.PUBLISHED))
+        published_post_count=Count('blog_posts', filter=Q(blog_posts__status=Post.Status.PUBLISHED))
     ).filter(published_post_count__gt=0).order_by('-published_post_count')[:5]
     
     return {'top_author': top_author}
