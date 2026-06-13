@@ -5,6 +5,16 @@ import math
 
 User = get_user_model()
 
+class Tag(models.Model):
+    title = models.CharField(_("tag title"), max_length=50)
+    slug = models.SlugField(_("tag_slug"))
+
+    class meta:
+        verbose_name = 'tag'
+        verbose_name_plural = 'tags'
+        
+
+
 class Category(models.Model):
     name = models.CharField(_("name"), max_length=200, unique=True)
     content = models.TextField(_('content'))
