@@ -12,7 +12,10 @@ class Tag(models.Model):
     class meta:
         verbose_name = 'tag'
         verbose_name_plural = 'tags'
-        
+    
+    def __str__(self):
+        return self.title
+
 
 
 class Category(models.Model):
@@ -46,11 +49,9 @@ class Post(models.Model):
     content = models.TextField(_('content'))
     snippet = models.CharField(_('snippet'), max_length=400, blank=True)
     category = models.ManyToManyField('Category', blank=True, related_name='posts', verbose_name=_('category'))
-    
+    tags = models.ManyToManyField('Tag', blank=True, related_name='posts', verbose_name=_('tags'))
     publish_date = models.DateTimeField(_('publish date'), blank=True, null=True)
-    
     views_count = models.PositiveIntegerField(_('views count'), default=0)
-    
     created_date = models.DateTimeField(_('created date'), auto_now_add=True)
     updated_date = models.DateTimeField(_('updated date'), auto_now=True)
     

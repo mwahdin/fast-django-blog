@@ -1,8 +1,19 @@
 from django.shortcuts import render,get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
-from .models import Post, User, Category
+from .models import Post, User, Category, Tag
 from django.db.models import Count, Q
 
+
+
+class PopularTagsMixin:
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['popular_tags'] = Tag.objects.annotate(
+            posts_count=Count('posts')
+        ).order_by('-posts_count')[:6]
+        
+        return context
 
 class AuthorView(ListView): 
     model = Post
@@ -32,7 +43,7 @@ class PostListView(ListView):
     def get_queryset(self):
         return Post.objects.filter(status=Post.Status.PUBLISHED).order_by('-publish_date')
     
-class PostDetailView(DetailView):
+class PostDetailView(PopularTagsMixin, DetailView):
     model = Post
     template_name = 'blog/single.html'
     context_object_name = 'post'
@@ -48,6 +59,15 @@ class PostDetailView(DetailView):
             self.request.session['viewed_posts'] = viewed_posts
             self.request.session.modified = True
         return obj
+    
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['popular_tags'] = Tag.objects.annotate(
+    #         posts_count=Count('posts')
+    #     ).order_by('-posts_count')[:6]
+    #     return context
+        
+    
         
 
 class AllCategoriesListView(ListView):
@@ -74,3 +94,4 @@ class CategoryPostListView(ListView):
         context = super().get_context_data(**kwargs)
         context['category'] = self.category 
         return context
+    

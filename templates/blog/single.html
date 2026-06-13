@@ -374,68 +374,25 @@
                 </div>
                 <ul class="list-unstyled d-flex flex-wrap gap-3 pe-0">
                   <!-- prettier-ignore -->
+                {% for tag in popular_tags %}
                   <li class="carouselTicker__item mx-0">
-                                        <a href="single-3.html#" class="tag-item link-effect-2">
-                                            <span class="text">
-                                                <span class="text1">پوشاک</span>
-                                                <span class="text2">پوشاک</span>
-                                            </span>
+                      <a href="single-3.html#" class="tag-item link-effect-2">
+                          <span class="text">
+                              <span class="text1">{{tag.title}}</span>
+                              <span class="text2">{{tag.title}}</span>
+                          </span>
 
-                                            <span class="number">
-                                                <span class="odometer text-nowrap" data-count="68"></span>
-                                            </span>
-                                        </a>
-                                    </li>
-                  <li class="carouselTicker__item mx-0">
-                    <a href="single-3.html#" class="tag-item link-effect-2">
-                      <span class="text">
-                        <span class="text1">تکنولوژی</span>
-                        <span class="text2">تکنولوژی</span>
-                      </span>
-
-                      <span class="number"><span class="odometer text-nowrap" data-count="85"></span></span>
-                    </a>
+                          <span class="number">
+                              <span class="odometer text-nowrap" data-count="{{ tag.posts_count }}"></span>
+                          </span>
+                      </a>
                   </li>
-                  <li class="carouselTicker__item mx-0">
-                    <a href="single-3.html#" class="tag-item link-effect-2">
-                      <span class="text">
-                        <span class="text1">دانش</span>
-                        <span class="text2">دانش</span>
-                      </span>
+                  {% empty %}
+                  <li class="text-muted">هنوز تگی ساخته نشده است.</li>
 
-                      <span class="number"><span class="odometer text-nowrap" data-count="120"></span></span>
-                    </a>
-                  </li>
-                  <li class="carouselTicker__item mx-0">
-                    <a href="single-3.html#" class="tag-item link-effect-2">
-                      <span class="text">
-                        <span class="text1">سبک زندگی</span>
-                        <span class="text2">سبک زندگی</span>
-                      </span>
+                  {% endfor %}
 
-                      <span class="number"><span class="odometer text-nowrap" data-count="89"></span></span>
-                    </a>
-                  </li>
-                  <li class="carouselTicker__item mx-0">
-                    <a href="single-3.html#" class="tag-item link-effect-2">
-                      <span class="text">
-                        <span class="text1">اقتصاد</span>
-                        <span class="text2">اقتصاد</span>
-                      </span>
 
-                      <span class="number"><span class="odometer text-nowrap" data-count="52"></span></span>
-                    </a>
-                  </li>
-                  <li class="carouselTicker__item mx-0">
-                    <a href="single-3.html#" class="tag-item link-effect-2">
-                      <span class="text">
-                        <span class="text1">تاریخی</span>
-                        <span class="text2">تاریخی</span>
-                      </span>
-
-                      <span class="number"><span class="odometer text-nowrap" data-count="115"></span></span>
-                    </a>
-                  </li>
                 </ul>
               </div>
               <div class="col-md-6 col-lg-12 col-12">
