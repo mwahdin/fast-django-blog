@@ -5,6 +5,8 @@ import math
 
 User = get_user_model()
 
+
+
 class Tag(models.Model):
     title = models.CharField(_("tag title"), max_length=50)
     slug = models.SlugField(_("tag_slug"))
@@ -27,7 +29,6 @@ class Category(models.Model):
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')
-
     def __str__(self):
         return self.name
     

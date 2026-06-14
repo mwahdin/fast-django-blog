@@ -281,87 +281,42 @@
                   <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M0.582044 11.7285C8.79451 13.4712 10.252 14.8614 12.125 22.7372C13.8067 14.8768 15.2308 13.4992 23.4018 11.8279C15.1894 10.0852 13.7319 8.69503 11.8589 0.81924C10.1769 8.67956 8.75306 10.0571 0.582044 11.7285Z" fill="#0E0E0F" />
                   </svg>
-                  <h5 class="mb-0">خبرهای هفته</h5>
+                  <h5 class="mb-0">علاقه مندید به ...؟</h5>
                 </div>
                 <div class="d-flex flex-wrap gap-3">
-                  <!-- prettier-ignore -->
-                  <div class=" hover-up">
-                                        <div class="article card-10 style-2">
-                                            <div class="hover-effect-1">
-                                                <a href="single-3.html#" class="card-img">
-                                                    <img class="w-100" src="assets/imgs/other/img-other-1.png" alt="magzin">
-                                                </a>
-                                            </div>
-                                            <div class="card-body">
-                                                <a href="single-3.html#">
-                                                    <h6 class="fs-7 mb-2 text-truncate-2">سفرهای گردشگری زیبا و مقرون‌به‌صرفه برای سال ۲۰۲۵</h6>
-                                                </a>
-                                                <div class="d-flex align-items-center text-600">
-                                                    <span class="fs-8">16 دی، 1403</span>
-                                                    <ul class="ps-4 m-0">
-                                                        <li>
-                                                            <span class="fs-8">6 دقیقه مطالعه</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                  <div class="hover-up">
-                    <div class="article card-10 style-2">
-                      <div class="hover-effect-1">
-                        <a href="single-3.html#" class="card-img"><img class="w-100" src="assets/imgs/other/img-other-2.png" alt="magzin" /></a>
-                      </div>
-                      <div class="card-body">
-                        <a href="single-3.html#"><h6 class="fs-7 mb-2 text-truncate-2">هشدار درباره یک بیماری حاد تنفسی در سرما</h6></a>
-                        <div class="d-flex align-items-center text-600">
-                          <span class="fs-8">16 دی، 1403</span>
-                          <ul class="ps-4 m-0">
-                            <li>
-                              <span class="fs-8">6 دقیقه مطالعه</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="hover-up">
-                    <div class="article card-10 style-2">
-                      <div class="hover-effect-1">
-                        <a href="single-3.html#" class="card-img"><img class="w-100" src="assets/imgs/other/img-other-14.png" alt="magzin" /></a>
-                      </div>
-                      <div class="card-body">
-                        <a href="single-3.html#"><h6 class="fs-7 mb-2 text-truncate-2">طرح مجلس برای گرفتن مالیات از سفته بازها</h6></a>
-                        <div class="d-flex align-items-center text-600">
-                          <span class="fs-8">16 دی، 1403</span>
-                          <ul class="ps-4 m-0">
-                            <li>
-                              <span class="fs-8">6 دقیقه مطالعه</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-none d-lg-block hover-up">
-                    <div class="article card-10 style-2">
-                      <div class="hover-effect-1">
-                        <a href="single-3.html#" class="card-img"><img class="w-100" src="assets/imgs/other/img-other-15.png" alt="magzin" /></a>
-                      </div>
-                      <div class="card-body">
-                        <a href="single-3.html#"><h6 class="fs-7 mb-2 text-truncate-2">بهترین حساب های توییتر برای سرمایه گذاری دیجیتال</h6></a>
-                        <div class="d-flex align-items-center text-600">
-                          <span class="fs-8">16 دی، 1403</span>
-                          <ul class="ps-4 m-0">
-                            <li>
-                              <span class="fs-8">6 دقیقه مطالعه</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  {% for related_post in related_posts %}
+    <div class="hover-up {% if forloop.counter == 4 %}d-none d-lg-block{% endif %}">
+      <div class="article card-10 style-2">
+        <div class="hover-effect-1">
+          <a href="{% url 'blog:post_detail' related_post.slug %}" class="card-img">
+            {% if related_post.image %}
+              <img class="w-100" src="{{ related_post.image.url }}" alt="{{ related_post.title }}">
+            {% else %}
+              <img class="w-100" src="/assets/imgs/default-placeholder.png" alt="{{ related_post.title }}">
+            {% endif %}
+          </a>
+        </div>
+        <div class="card-body">
+          <a href="{% url 'blog:post_detail' related_post.slug %}">
+            <h6 class="fs-7 mb-2 text-truncate-2">{{ related_post.title }}</h6>
+          </a>
+          <div class="d-flex align-items-center text-600">
+            <span class="fs-8">{{ related_post.publish_date|date:"j F Y" }}</span>
+            <ul class="ps-4 m-0">
+              <li>
+                <span class="fs-8">{{ related_post.read_time }} دقیقه مطالعه</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <div class="w-100 text-center py-4">
+      <p class="text-muted fs-7">مقاله مرتبط دیگری در این دسته‌بندی یافت نشد.</p>
+    </div>
+  {% endfor %}
+</div>
               </div>
             </div>
             <div class="row">
