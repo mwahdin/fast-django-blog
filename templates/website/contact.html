@@ -2,369 +2,412 @@
 {% load static %}
 
 {% block content %}
-<main>
+  <main>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav aria-label="breadcrumb">
-                    <ul class="breadcrumb list-unstyled d-flex flex-row gap-2 align-items-center m-0 pe-0 py-4">
-                        <li class="breadcrumb-item"><a href="index.html" class="text-600 fs-7 hover-dark">صفحه اصلی</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <span class="icon-shape icon-xxs">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"
-                                    fill="none">
-                                    <path d="M6.125 4.5625L9.5625 7.84375L6.125 11.125" stroke="#626568"
-                                        stroke-width="0.9375" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
-                        </li>
-                        <li class="breadcrumb-item active text-dark fs-7" aria-current="page">تماس با ما</li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-12">
-                <div class="contact-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.4755287237285!2d51.406780975300855!3d35.73911512679292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e060ddacbb909%3A0x2297707295d2278b!2sTehran%20Province%2C%20Valiasr%20St%2C%20Iran!5e0!3m2!1sen!2s!4v1765797340770!5m2!1sen!2s"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ul class="breadcrumb list-unstyled d-flex flex-row gap-2 align-items-center m-0 pe-0 py-4">
+              <li class="breadcrumb-item">
+                <a href="index.html" class="text-600 fs-7 hover-dark">صفحه اصلی</a>
+              </li>
+              <li class="breadcrumb-item">
+                <span class="icon-shape icon-xxs">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M6.125 4.5625L9.5625 7.84375L6.125 11.125" stroke="#626568" stroke-width="0.9375" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </li>
+              <li class="breadcrumb-item active text-dark fs-7" aria-current="page">تماس با ما</li>
+            </ul>
+          </nav>
         </div>
-        <div class="row py-5">
-            <div class="col-md-10 mx-auto">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h5 class="mb-2">آدرس</h5>
-                        <p class="m-0">تهران خیابان ولیعصر</p>
-                        <p class="m-0">خیابان بزرگمهر مجتمع خبری تحلیل داده</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h5 class="mb-2">شماره تماس</h5>
-                        <p class="m-0">02188256840</p>
-                        <p class="m-0">02188256840</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h5 class="mb-2">ایمیل</h5>
-                        <p class="m-0">شنبه - چهارشنبه: 08:00 - 17:00</p>
-                        <p class="m-0">پنحشنبه - جمعه: 11:00 - 15:00</p>
-                    </div>
-                </div>
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <h4 class="mt-5 mb-2 pb-4 pt-3">با ما در ارتباط باشید</h4>
-                        <div class="row wow img-custom-anim-left g-3 border-top">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="input-group d-flex align-items-center">
-                                    <div class="icon-input pe-3">
-                                        <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24"
-                                            height="24" viewBox="0 0 24 24" fill="none">
-                                            <path class="stroke-dark"
-                                                d="M12 11.25C13.7949 11.25 15.25 9.79493 15.25 8C15.25 6.20507 13.7949 4.75 12 4.75C10.2051 4.75 8.75 6.20507 8.75 8C8.75 9.79493 10.2051 11.25 12 11.25Z"
-                                                stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path class="stroke-dark"
-                                                d="M6.84723 19.25H17.1522C18.2941 19.25 19.1737 18.2681 18.6405 17.2584C17.856 15.7731 16.0677 14 11.9997 14C7.93174 14 6.1434 15.7731 5.35897 17.2584C4.8257 18.2681 5.70531 19.25 6.84723 19.25Z"
-                                                stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                    <input type="text" class="form-control me-0" name="name" placeholder="نام کامل*"
-                                        aria-label="username" />
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="input-group d-flex align-items-center">
-                                    <div class="icon-input pe-3">
-                                        <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24"
-                                            height="24" viewBox="0 0 24 24" fill="none">
-                                            <path
-                                                d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z"
-                                                stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M5.5 6.5L12 12.25L18.5 6.5" stroke="#0E0E0F" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                    <input type="text" class="form-control me-0" name="name"
-                                        placeholder="info@webmail.com" aria-label="email" />
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="input-group d-flex align-items-center">
-                                    <div class="icon-input pe-3">
-                                        <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24"
-                                            height="24" viewBox="0 0 24 24" fill="none">
-                                            <path class="stroke-dark"
-                                                d="M6.75 19.25H17.25C18.3546 19.25 19.25 18.3546 19.25 17.25V9.75001L12 4.75L4.75 9.75001V17.25C4.75 18.3546 5.64544 19.25 6.75 19.25Z"
-                                                stroke="#111827" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path class="stroke-dark"
-                                                d="M9.75 15.7495C9.75 14.6449 10.6455 13.7495 11.75 13.7495H12.25C13.3546 13.7495 14.25 14.6449 14.25 15.7495V19.2495H9.75V15.7495Z"
-                                                stroke="#111827" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                    <input type="text" class="form-control me-0" name="name" placeholder="عنوان درخواست"
-                                        aria-label="website" />
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="input-group d-flex">
-                                    <div
-                                        class="icon-input pt-2 pe-3 align-items-start border border-strat-0 rounded-1 rounded-strat-0">
-                                        <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="18"
-                                            height="18" viewBox="0 0 18 18" fill="none">
-                                            <path class="stroke-dark"
-                                                d="M5.5 2.14844H3C1.89543 2.14844 1 3.04387 1 4.14844V14.6484C1 15.753 1.89543 16.6484 3 16.6484H13.5C14.6046 16.6484 15.5 15.753 15.5 14.6484V12.1484"
-                                                stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path class="fill-dark"
-                                                d="M17.3285 1.20344L16.4448 0.319749C16.0185 -0.106583 15.3248 -0.106583 14.8984 0.319749L7.82915 7.38907C7.76373 7.45449 7.71914 7.53782 7.70096 7.62854L7.2591 9.83772C7.22839 9.99137 7.27647 10.1502 7.38729 10.261C7.47605 10.3498 7.59561 10.3983 7.71864 10.3983C7.74923 10.3983 7.77997 10.3953 7.81053 10.3892L10.0197 9.94732C10.1104 9.92917 10.1938 9.88455 10.2592 9.81913L17.3285 2.74984C17.3285 2.74984 17.3286 2.74984 17.3286 2.74981C17.7549 2.32351 17.7549 1.6298 17.3285 1.20344ZM9.69678 9.05607L8.31606 9.33225L8.59224 7.95153L14.3461 2.19754L15.4507 3.30214L9.69678 9.05607ZM16.6658 2.0871L16.1135 2.6394L15.0089 1.53479L15.5612 0.982524C15.6221 0.921601 15.7212 0.92157 15.7821 0.982493L16.6658 1.86618C16.7267 1.92707 16.7267 2.0262 16.6658 2.0871Z"
-                                                fill="black" />
-                                        </svg>
-                                    </div>
-                                    <textarea class="form-control" name="name" placeholder="متن درخواست"
-                                        aria-label="With textarea"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit"
-                                    class="btn btn-dark rounded-8 gap-2 button-effect-1">ارسال</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-12">
+          <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.4755287237285!2d51.406780975300855!3d35.73911512679292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e060ddacbb909%3A0x2297707295d2278b!2sTehran%20Province%2C%20Valiasr%20St%2C%20Iran!5e0!3m2!1sen!2s!4v1765797340770!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
+      </div>
+      <div class="row py-5">
+        <div class="col-md-10 mx-auto">
+          <div class="row">
+            <div class="col-md-4">
+              <h5 class="mb-2">آدرس</h5>
+              <p class="m-0">تهران خیابان ولیعصر</p>
+              <p class="m-0">خیابان بزرگمهر مجتمع خبری تحلیل داده</p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="mb-2">شماره تماس</h5>
+              <p class="m-0">02188256840</p>
+              <p class="m-0">02188256840</p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="mb-2">ساعات کاری</h5>
+              <p class="m-0">شنبه - چهارشنبه: 08:00 - 17:00</p>
+              <p class="m-0">پنحشنبه - جمعه: 11:00 - 15:00</p>
+            </div>
+          </div>
+          {% if messages %}
+            <div class="position-fixed top-0 end-0 p-3" style="z-index: 1090; margin-top: 90px; max-width: 350px; width: 100%;">
+              {% for message in messages %}
+                <div class="toast-custom d-flex align-items-center p-3 mb-2 rounded-8 shadow-lg {% if message.tags == 'success' %}
+                    border-start-success
+                  {% else %}
+                    border-start-danger
+                  {% endif %}"
+                  role="alert">
+                  <div class="d-flex align-items-center gap-2 w-100">
+                    {% if message.tags == 'success' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#198754" class="bi bi-check-circle-fill flex-shrink-0" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                      </svg>
+                    {% else %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#dc3545" class="bi bi-x-circle-fill flex-shrink-0" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.55.55 0 1 0-.708.708L7.293 8l-2.647 2.646a.55.55 0 1 0 .708.708L8 8.707l2.646 2.647a.55.55 0 0 0 .708-.708L8.707 8l2.647-2.646a.55.55 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                      </svg>
+                    {% endif %}
+
+                    <span class="fs-7 text-600 toast-text m-0">{{ message }}</span>
+
+                    <button type="button" class="btn-close ms-auto shadow-none c-pointer" onclick="this.closest('.toast-custom').remove()" aria-label="Close"></button>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <style>
+              .toast-custom {
+                background-color: #ffffff;
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                position: relative;
+                overflow: hidden;
+                animation: slideInRight 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards, slideOutRight 0.4s cubic-bezier(0.5, 0, 0.75, 0) 5s forwards;
+              }
+              
+              [data-bs-theme='dark'] .toast-custom {
+                background-color: #1e1e20;
+                border-color: rgba(255, 255, 255, 0.08);
+              }
+              
+              .toast-text {
+                color: #1f2937;
+              }
+              [data-bs-theme='dark'] .toast-text {
+                color: #f3f4f6;
+              }
+              
+              .border-start-success {
+                border-right: 4px solid #198754 !important;
+              }
+              .border-start-danger {
+                border-right: 4px solid #dc3545 !important;
+              }
+              
+              @keyframes slideInRight {
+                from {
+                  transform: translateX(120%);
+                  opacity: 0;
+                }
+                to {
+                  transform: translateX(0);
+                  opacity: 1;
+                }
+              }
+              
+              @keyframes slideOutRight {
+                from {
+                  transform: translateX(0);
+                  opacity: 1;
+                }
+                to {
+                  transform: translateX(120%);
+                  opacity: 0;
+                }
+              }
+            </style>
+
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('.toast-custom').forEach(function (toast) {
+                  setTimeout(function () {
+                    toast.remove()
+                  }, 3400)
+                })
+              })
+            </script>
+          {% endif %}
+
+          <form method="POST" action="{% url 'website:contact_page' %}">
+            {% csrf_token %}
+            <div class="row mb-4">
+              <div class="col-12">
+                <h4 class="mt-5 mb-2 pb-4 pt-3">با ما در ارتباط باشید</h4>
+                <div class="row wow img-custom-anim-left g-3 border-top">
+                  <div class="col-md-6 col-lg-4">
+                    <div class="input-group d-flex align-items-center">
+                      <div class="icon-input pe-3">
+                        <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path class="stroke-dark" d="M12 11.25C13.7949 11.25 15.25 9.79493 15.25 8C15.25 6.20507 13.7949 4.75 12 4.75C10.2051 4.75 8.75 6.20507 8.75 8C8.75 9.79493 10.2051 11.25 12 11.25Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path class="stroke-dark" d="M6.84723 19.25H17.1522C18.2941 19.25 19.1737 18.2681 18.6405 17.2584C17.856 15.7731 16.0677 14 11.9997 14C7.93174 14 6.1434 15.7731 5.35897 17.2584C4.8257 18.2681 5.70531 19.25 6.84723 19.25Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                      <input type="text" class="form-control me-0" name="fullName" placeholder="نام کامل" aria-label="username" value="{{ request.POST.fullName|default:'' }}" required />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4">
+                    <div class="input-group d-flex align-items-center">
+                      <div class="icon-input pe-3">
+                        <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M5.5 6.5L12 12.25L18.5 6.5" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                      <input type="email" class="form-control me-0" name="email" placeholder="info@gmail.com" aria-label="email" value="{{ request.POST.email|default:'' }}" required />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <div class="input-group d-flex align-items-center">
+                      <div class="icon-input pe-3">
+                        <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path class="stroke-dark" d="M6.75 19.25H17.25C18.3546 19.25 19.25 18.3546 19.25 17.25V9.75001L12 4.75L4.75 9.75001V17.25C4.75 18.3546 5.64544 19.25 6.75 19.25Z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path class="stroke-dark" d="M9.75 15.7495C9.75 14.6449 10.6455 13.7495 11.75 13.7495H12.25C13.3546 13.7495 14.25 14.6449 14.25 15.7495V19.2495H9.75V15.7495Z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                      <input type="text" class="form-control me-0" name="subject" placeholder="عنوان درخواست" aria-label="website" value="{{ request.POST.subject|default:'' }}" required />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="input-group d-flex">
+                      <div class="icon-input pt-2 pe-3 align-items-start border border-strat-0 rounded-1 rounded-strat-0">
+                        <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                          <path class="stroke-dark" d="M5.5 2.14844H3C1.89543 2.14844 1 3.04387 1 4.14844V14.6484C1 15.753 1.89543 16.6484 3 16.6484H13.5C14.6046 16.6484 15.5 15.753 15.5 14.6484V12.1484" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path class="fill-dark" d="M17.3285 1.20344L16.4448 0.319749C16.0185 -0.106583 15.3248 -0.106583 14.8984 0.319749L7.82915 7.38907C7.76373 7.45449 7.71914 7.53782 7.70096 7.62854L7.2591 9.83772C7.22839 9.99137 7.27647 10.1502 7.38729 10.261C7.47605 10.3498 7.59561 10.3983 7.71864 10.3983C7.74923 10.3983 7.77997 10.3953 7.81053 10.3892L10.0197 9.94732C10.1104 9.92917 10.1938 9.88455 10.2592 9.81913L17.3285 2.74984C17.3285 2.74984 17.3286 2.74984 17.3286 2.74981C17.7549 2.32351 17.7549 1.6298 17.3285 1.20344ZM9.69678 9.05607L8.31606 9.33225L8.59224 7.95153L14.3461 2.19754L15.4507 3.30214L9.69678 9.05607ZM16.6658 2.0871L16.1135 2.6394L15.0089 1.53479L15.5612 0.982524C15.6221 0.921601 15.7212 0.92157 15.7821 0.982493L16.6658 1.86618C16.7267 1.92707 16.7267 2.0262 16.6658 2.0871Z" fill="black" />
+                        </svg>
+                      </div>
+                      <textarea class="form-control" name="message" placeholder="متن درخواست" aria-label="With textarea" required>{{ request.POST.message|default:'' }}</textarea>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-dark rounded-8 gap-2 button-effect-1">ارسال</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <!--Home 1 Section 11-->
+    <!-- Home 1 Section 11 -->
     <div class="sec-11-home-1 bg-white">
-        <div class="wow img-custom-anim-top block-insta">
-            <div class="swiper swiper-insta">
-                <div class="swiper-wrapper z-1">
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-46.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-47.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-48.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-49.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-50.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-51.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-52.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-53.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-54.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-46.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-47.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-48.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-49.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-50.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-51.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-52.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-53.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="picture-insta">
-                            <div class="hover-effect-1">
-                                <img class="image" src="{% static 'assets/imgs/page/img-54.png' %}" alt="magzin">
-                            </div>
-                            <a href="page-contact.html#"
-                                class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
-                                <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin">
-                                <span class="fw-regular fs-7">magzin</span>
-                            </a>
-                        </div>
-                    </div>
+      <div class="wow img-custom-anim-top block-insta">
+        <div class="swiper swiper-insta">
+          <div class="swiper-wrapper z-1">
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-46.png' %}" alt="magzin" />
                 </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
             </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-47.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-48.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-49.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-50.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-51.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-52.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-53.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-54.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-46.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-47.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-48.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-49.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-50.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-51.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-52.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-53.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="picture-insta">
+                <div class="hover-effect-1">
+                  <img class="image" src="{% static 'assets/imgs/page/img-54.png' %}" alt="magzin" />
+                </div>
+                <a href="page-contact.html#" class="btn-link position-absolute bottom-0 mb-4 start-50 translate-middle-x changeless">
+                  <img src="{% static 'assets/imgs/template/icons/insta.svg' %}" alt="magzin" />
+                  <span class="fw-regular fs-7">magzin</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <div class="bg-50 pb-70"></div>
-</main>
-
+  </main>
 {% endblock %}
