@@ -103,10 +103,14 @@
                                 <div class="curve-one"></div>
                                 <div class="curve-two"></div>
                             </div>
+
                             <div class="d-flex flex-column">
                                 <div class="card-info d-flex flex-wrap align-items-center gap-2 mb-3">
-                                    <a href="archive-1.html#" class="badge bg-1 fs-8">سبک زندگی</a>
-                                    <a href="archive-1.html#" class="badge bg-3 fs-8">پزشکی</a>
+                                    {% if post.tags.all %}
+                                        {% for tag in post.tags.all %}
+                                            <a href="archive-1.html#" class="badge bg-1 fs-8">{{ tag.name }}</a>
+                                        {% endfor %}
+                                    {% endif %}
                                     <ul class="d-flex align-items-center text-600 m-0 pe-3">
                                         <li>
                                             <p class="fs-8 m-0">6 دقیقه مطالعه</p>
