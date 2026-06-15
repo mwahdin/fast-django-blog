@@ -27,8 +27,11 @@
               </nav>
               <div class="card-title">
                 <div class="article card-info d-flex flex-wrap align-items-center gap-2 mt-4">
-                      <a href="single-3.html#" class="badge bg-1 fs-8">سبک زندگی</a>
-                      <a href="single-3.html#" class="badge bg-2 fs-8">سیاسی</a>
+                      {% for tag in post.tags.all %}
+                          <a href="#" class="badge bg-1 fs-8">#{{ tag.title }}</a>
+                      {% empty %}
+                          <p class="text-danger small">هیچ تگی برای این پست در پیدا نشد!</p>
+                      {% endfor %}
                       <ul class="d-flex align-items-center text-600 m-0 ps-3">
                           <li>
                               <p class="fs-8 m-0">{{ post.read_time }} دقیقه زمان مطالعه</p>
@@ -40,7 +43,7 @@
                 <div class="border-top"></div>
                 <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
                   <a href="single-3.html#" class="author d-flex align-items-center gap-2">
-                    <img class="avatar avatar-md rounded-circle" src="{{ post.author.profile.image.url }}" alt="magzin" />
+                    {% comment %} <img class="avatar avatar-md rounded-circle" src="{{ post.author.profile.image.url }}" alt="post.author.profile.first_name" /> {% endcomment %}
                     <span class="fs-7 text-dark fw-regular">{{ post.author.profile.first_name }}</span>
                   </a>
                   <ul class="d-flex align-items-center gap-4 text-600 m-0 ps-3">
@@ -245,12 +248,11 @@
               <div class="col-md-6 col-lg-12 col-12">
                 <div class="author-card">
                   <div class="card-img mb-4 text-center">
-                    <img class="rounded-circle avatar-154" src="assets/imgs/template/author/author-16.png" alt="magzin" />
+                    <img class="rounded-circle avatar-154" src="{{ post.author.profile.image.url }}" alt="ma{{ post.author.profile.first_name }}gzin" />
                   </div>
                   <div class="card-body text-center">
-                    <h5 class="mb-3">فاطمه حسینی</h5>
-                    <p class="mb-4">به فضایی قدم بگذارید که در آن افکار شکوفا می‌شوند، داستان‌ها نفس می‌کشند. در اینجا، من نه فقط برای به اشتراک گذاشتن، بلکه برای ارتباط برقرار کردن، و شگفتی نوشتن را آغاز می‌کنم.</p>
-                    <p class="text-dark mb-0">دنبال کنید</p>
+                    <h5 class="mb-3">{{ post.author.profile.first_name }}</h5>
+                    <p class="mb-4">{{ post.author.profile.description }}</p>
                     <div class="d-inline-flex group-social-icons mt-2">
                       <a href="single-3.html#" class="icon-shape icon-46">
                         <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" fill="none">
