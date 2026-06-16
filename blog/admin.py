@@ -25,4 +25,7 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug')
     search_fields = ('title', 'slug')
     prepopulated_fields = {'slug': ('title',)}
+
+
+
     
