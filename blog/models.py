@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 import math
+from django.contrib.contenttypes.fields import GenericRelation
+from website.models import Comment
+from django.urls import reverse
 
 User = get_user_model()
 
@@ -55,6 +58,10 @@ class Post(models.Model):
     views_count = models.PositiveIntegerField(_('views count'), default=0)
     created_date = models.DateTimeField(_('created date'), auto_now_add=True)
     updated_date = models.DateTimeField(_('updated date'), auto_now=True)
+    comments = GenericRelation(Comment)
+
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', kwargs={'slug': self.slug})
     
 
     @property

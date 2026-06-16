@@ -3,6 +3,11 @@ from django.views.generic import TemplateView, FormView
 from django.urls import reverse_lazy
 from .forms import ContactForm
 from django.contrib import messages
+from django.views.generic import CreateView
+from django.shortcuts import get_object_or_404, redirect
+from blog.models import Post
+from .models import Comment
+from .forms import CommentForm
 
 
 # Create your views here.
@@ -32,3 +37,17 @@ class ContactUsView(FormView):
         messages.success(self.request, "we got your message. i'll call back you")
 
         return super().form_valid(form)
+
+
+class CommentCreateView(CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        post_id = self.kwargs.get('post_id')
+        post_obj = get_object_or_404(Post, id=post_id)
+        form.instance.content_object = post_obj
+        form.save()
+        
+        return redirect(post_obj.get_absolute_url())

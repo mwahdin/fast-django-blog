@@ -1,4 +1,5 @@
 from django import forms
+from .models import Comment
 
 
 class ContactForm(forms.Form):
@@ -9,3 +10,10 @@ class ContactForm(forms.Form):
         label="message",
         widget=forms.Textarea(attrs={"placeholder": "Enter your request"}),
     )
+
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']

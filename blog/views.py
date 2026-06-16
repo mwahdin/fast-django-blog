@@ -61,14 +61,47 @@ class PostListView(ListView):
         )
 
 
+# class PostDetailView(PopularTagsMixin, DetailView):
+#     model = Post
+#     template_name = "blog/single.html"
+#     context_object_name = "post"
+
+#     def get_object(self, queryset=None):
+#         safe_queryset = Post.objects.filter(status=Post.Status.PUBLISHED)
+#         obj = super().get_object(queryset=safe_queryset)
+#         viewed_posts = self.request.session.get("viewed_posts", [])
+#         if obj.id not in viewed_posts:
+#             obj.views_count += 1
+#             obj.save(update_fields=["views_count"])
+#             viewed_posts.append(obj.id)
+#             self.request.session["viewed_posts"] = viewed_posts
+#             self.request.session.modified = True
+#         return obj
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+
+#         current_post = self.object
+#         context["related_posts"] = (
+#             Post.objects.filter(
+#                 status=Post.Status.PUBLISHED, category__in=current_post.category.all()
+#             )
+#             .exclude(id=current_post.id)
+#             .distinct()[:4]
+#         )
+#         return context
+
 class PostDetailView(PopularTagsMixin, DetailView):
-    model = Post
+    # ۱. کوئری‌ست پایه را همین‌جا فیلتر می‌کنیم تا ساختار مدل خراب نشود
+    queryset = Post.objects.filter(status=Post.Status.PUBLISHED)
     template_name = "blog/single.html"
     context_object_name = "post"
 
     def get_object(self, queryset=None):
-        safe_queryset = Post.objects.filter(status=Post.Status.PUBLISHED)
-        obj = super().get_object(queryset=safe_queryset)
+        # استفاده از کوئری‌ست پیش‌فرض کلاس
+        obj = super().get_object(queryset=self.queryset)
+        
+        # ثبت سیستم تعداد بازدید بدون دستکاری ساختار مدل
         viewed_posts = self.request.session.get("viewed_posts", [])
         if obj.id not in viewed_posts:
             obj.views_count += 1
@@ -80,8 +113,9 @@ class PostDetailView(PopularTagsMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         current_post = self.object
+        
+        # لود پست‌های مرتبط
         context["related_posts"] = (
             Post.objects.filter(
                 status=Post.Status.PUBLISHED, category__in=current_post.category.all()
