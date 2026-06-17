@@ -23,3 +23,9 @@ class Comment(models.Model):
         if self.user.profile.first_name:
             return f"کامنت از طرف {self.user.profile.first_name} {self.user.profile.last_name}"
         return f"کامنت از طرف {self.user.email}"
+
+class ArticleSuggestion(models.Model):
+    title = models.CharField(max_length=50)
+    content = models.TextField(_("description"), max_length= 100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+

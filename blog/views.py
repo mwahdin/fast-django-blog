@@ -92,16 +92,13 @@ class PostListView(ListView):
 #         return context
 
 class PostDetailView(PopularTagsMixin, DetailView):
-    # ۱. کوئری‌ست پایه را همین‌جا فیلتر می‌کنیم تا ساختار مدل خراب نشود
     queryset = Post.objects.filter(status=Post.Status.PUBLISHED)
     template_name = "blog/single.html"
     context_object_name = "post"
 
     def get_object(self, queryset=None):
-        # استفاده از کوئری‌ست پیش‌فرض کلاس
         obj = super().get_object(queryset=self.queryset)
         
-        # ثبت سیستم تعداد بازدید بدون دستکاری ساختار مدل
         viewed_posts = self.request.session.get("viewed_posts", [])
         if obj.id not in viewed_posts:
             obj.views_count += 1

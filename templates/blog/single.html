@@ -27,19 +27,19 @@
               </nav>
               <div class="card-title">
                 <div class="article card-info d-flex flex-wrap align-items-center gap-2 mt-4">
-                      {% for tag in post.tags.all %}
-                          <a href="#" class="badge bg-1 fs-8">#{{ tag.title }}</a>
-                      {% empty %}
-                          <p class="text-danger small">هیچ تگی برای این پست در پیدا نشد!</p>
-                      {% endfor %}
-                      <ul class="d-flex align-items-center text-600 m-0 ps-3">
-                          <li>
-                              <p class="fs-8 m-0">{{ post.read_time }} دقیقه زمان مطالعه</p>
-                          </li>
-                      </ul>
-                      
-                      <h3>{{ post.title }}</h3>
-                  </div>
+                  {% for tag in post.tags.all %}
+                    <a href="#" class="badge bg-1 fs-8">#{{ tag.title }}</a>
+                  {% empty %}
+                    <p class="text-danger small">هیچ تگی برای این پست در پیدا نشد!</p>
+                  {% endfor %}
+                  <ul class="d-flex align-items-center text-600 m-0 ps-3">
+                    <li>
+                      <p class="fs-8 m-0">{{ post.read_time }} دقیقه زمان مطالعه</p>
+                    </li>
+                  </ul>
+
+                  <h3>{{ post.title }}</h3>
+                </div>
                 <div class="border-top"></div>
                 <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
                   <a href="single-3.html#" class="author d-flex align-items-center gap-2">
@@ -48,7 +48,7 @@
                   </a>
                   <ul class="d-flex align-items-center gap-4 text-600 m-0 ps-3">
                     <li>
-                      <p class="fs-8 m-0">{{ post.publish_date|date:"Y/m/d" }}</p>
+                      <p class="fs-8 m-0">{{ post.publish_date|date:'Y/m/d' }}</p>
                     </li>
                   </ul>
                   <div class="me-md-auto me-5 d-flex align-items-center gap-3 ms-5">
@@ -62,7 +62,7 @@
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2025 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2025 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z" fill="#626568" />
                       </svg>
-                      <span><span class="text-nowrap"></span> {{post.views_count}} بازدید</span>
+                      <span><span class="text-nowrap"></span> {{ post.views_count }} بازدید</span>
                     </a>
                   </div>
                 </div>
@@ -266,39 +266,37 @@
                   <h5 class="mb-0">علاقه مندید به ...؟</h5>
                 </div>
                 <div class="d-flex flex-wrap gap-3">
-  {% for related_post in related_posts %}
-    <div class="hover-up {% if forloop.counter == 4 %}d-none d-lg-block{% endif %}">
-      <div class="article card-10 style-2">
-        <div class="hover-effect-1">
-          <a href="{% url 'blog:post_detail' related_post.slug %}" class="card-img">
-            {% if related_post.image %}
-              <img class="w-100" src="{{ related_post.image.url }}" alt="{{ related_post.title }}">
-            {% else %}
-              <img class="w-100" src="/assets/imgs/default-placeholder.png" alt="{{ related_post.title }}">
-            {% endif %}
-          </a>
-        </div>
-        <div class="card-body">
-          <a href="{% url 'blog:post_detail' related_post.slug %}">
-            <h6 class="fs-7 mb-2 text-truncate-2">{{ related_post.title }}</h6>
-          </a>
-          <div class="d-flex align-items-center text-600">
-            <span class="fs-8">{{ related_post.publish_date|date:"j F Y" }}</span>
-            <ul class="ps-4 m-0">
-              <li>
-                <span class="fs-8">{{ related_post.read_time }} دقیقه مطالعه</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  {% empty %}
-    <div class="w-100 text-center py-4">
-      <p class="text-muted fs-7">مقاله مرتبط دیگری در این دسته‌بندی یافت نشد.</p>
-    </div>
-  {% endfor %}
-</div>
+                  {% for related_post in related_posts %}
+                    <div class="hover-up {% if forloop.counter == 4 %}d-none d-lg-block{% endif %}">
+                      <div class="article card-10 style-2">
+                        <div class="hover-effect-1">
+                          <a href="{% url 'blog:post_detail' related_post.slug %}" class="card-img">
+                            {% if related_post.image %}
+                              <img class="w-100" src="{{ related_post.image.url }}" alt="{{ related_post.title }}" />
+                            {% else %}
+                              <img class="w-100" src="/assets/imgs/default-placeholder.png" alt="{{ related_post.title }}" />
+                            {% endif %}
+                          </a>
+                        </div>
+                        <div class="card-body">
+                          <a href="{% url 'blog:post_detail' related_post.slug %}"><h6 class="fs-7 mb-2 text-truncate-2">{{ related_post.title }}</h6></a>
+                          <div class="d-flex align-items-center text-600">
+                            <span class="fs-8">{{ related_post.publish_date|date:'j F Y' }}</span>
+                            <ul class="ps-4 m-0">
+                              <li>
+                                <span class="fs-8">{{ related_post.read_time }} دقیقه مطالعه</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% empty %}
+                    <div class="w-100 text-center py-4">
+                      <p class="text-muted fs-7">مقاله مرتبط دیگری در این دسته‌بندی یافت نشد.</p>
+                    </div>
+                  {% endfor %}
+                </div>
               </div>
             </div>
             <div class="row">
@@ -311,7 +309,7 @@
                 </div>
                 <ul class="list-unstyled d-flex flex-wrap gap-3 pe-0">
                   <!-- prettier-ignore -->
-                {% for tag in popular_tags %}
+                  {% for tag in popular_tags %}
                   <li class="carouselTicker__item mx-0">
                       <a href="single-3.html#" class="tag-item link-effect-2">
                           <span class="text">
@@ -328,8 +326,6 @@
                   <li class="text-muted">هنوز تگی ساخته نشده است.</li>
 
                   {% endfor %}
-
-
                 </ul>
               </div>
               <div class="col-md-6 col-lg-12 col-12">
