@@ -53,7 +53,7 @@ class CommentCreateView(CreateView):
         return redirect(post_obj.get_absolute_url())
     
 
-class CommentUpdateView(UpdateView):
+class CommentUpdateView(LoginRequiredMixin, UpdateView):
     model = Comment
     form_class = CommentForm
     template_name = 'blog/comment_edit.html'
@@ -62,7 +62,6 @@ class CommentUpdateView(UpdateView):
     def get_queryset(self):
         base_queryset = super().get_queryset()
         return base_queryset.filter(user=self.request.user)
-
 
     
 class SuggestionCreateView(CreateView):
