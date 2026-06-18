@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, UpdateView
 from django.urls import reverse_lazy
 from .forms import ContactForm
 from django.contrib import messages
@@ -52,6 +52,19 @@ class CommentCreateView(CreateView):
         
         return redirect(post_obj.get_absolute_url())
     
+
+class CommentUpdateView(UpdateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'blog/comment_edit.html'
+    success_url = reverse_lazy('blog:post_list')
+    
+    def get_queryset(self):
+        base_queryset = super().get_queryset()
+        return base_queryset.filter(user=self.request.user)
+
+
+    
 class SuggestionCreateView(CreateView):
     model = ArticleSuggestion
     form_class = suggestionForm
@@ -63,5 +76,3 @@ class SuggestionCreateView(CreateView):
         return super().form_valid(form)
     
     
-
-
