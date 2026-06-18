@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, FormView, UpdateView
 from django.urls import reverse_lazy
 from .forms import ContactForm
