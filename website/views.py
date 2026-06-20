@@ -8,7 +8,7 @@ from django.views.generic import CreateView
 from django.shortcuts import get_object_or_404, redirect
 from blog.models import Post
 from .models import Comment, ArticleSuggestion
-from .forms import CommentForm, suggestionForm
+from .forms import CommentForm, suggestionForm, PostForm
 
 
 # Create your views here.
@@ -76,3 +76,7 @@ class SuggestionCreateView(CreateView):
         return super().form_valid(form)
     
     
+class PostViewFormView(FormView):
+    template_name = './blog/postForm.html'
+    form_class = PostForm
+    success_url = reverse_lazy("website:main_page")

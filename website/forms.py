@@ -1,5 +1,6 @@
 from django import forms
 from .models import Comment, ArticleSuggestion
+from blog.models import Post
 
 
 class ContactForm(forms.Form):
@@ -36,3 +37,8 @@ class suggestionForm(forms.ModelForm):
                 'rows': 4 
             }),
         }
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ("title", "content")
