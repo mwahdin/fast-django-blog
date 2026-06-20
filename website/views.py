@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.views.generic import CreateView
 from django.shortcuts import get_object_or_404, redirect
 from blog.models import Post
-from .models import Comment, ArticleSuggestion
+from .models import Comment, ArticleSuggestion, CourseRequest
 from .forms import CommentForm, suggestionForm, PostForm, DiscountForm
 
 
@@ -63,34 +63,3 @@ class CommentUpdateView(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         base_queryset = super().get_queryset()
         return base_queryset.filter(user=self.request.user)
-
-    
-class SuggestionCreateView(CreateView):
-    model = ArticleSuggestion
-    form_class = suggestionForm
-    template_name = 'blog/suggestionArticle.html'
-    success_url = reverse_lazy('blog:post_list')
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-    
-    
-class PostViewFormView(FormView):
-    template_name = './blog/postForm.html'
-    form_class = PostForm
-    success_url = reverse_lazy("website:main_page")
-
-class ApplyDiscountView(FormView):
-    template_name = 'blog/1Discount.html'
-    form_class = DiscountForm
-    success_url = reverse_lazy('website:main_page')
-
-    def form_valid(self, form):
-        code = form.cleaned_data.get('code')
-        if code == 'PYTHON2026':
-            messages.success(self.request, "کد تخفیف با موفقیت اعمال شد! شما ۲۰٪ تخفیف گرفتید.")
-            return super().form_valid(form)
-        else:
-            form.add_error('code', 'کد تخفیف وارد شده اشتباه یا منقضی می‌باشد.')
-            return super().form_invalid(form)
