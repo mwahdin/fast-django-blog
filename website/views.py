@@ -8,7 +8,7 @@ from django.views.generic import CreateView
 from django.shortcuts import get_object_or_404, redirect
 from blog.models import Post
 from .models import Comment, ArticleSuggestion
-from .forms import CommentForm, suggestionForm, PostForm
+from .forms import CommentForm, suggestionForm, PostForm, DiscountForm
 
 
 # Create your views here.
@@ -80,3 +80,17 @@ class PostViewFormView(FormView):
     template_name = './blog/postForm.html'
     form_class = PostForm
     success_url = reverse_lazy("website:main_page")
+
+class ApplyDiscountView(FormView):
+    template_name = 'blog/1Discount.html'
+    form_class = DiscountForm
+    success_url = reverse_lazy('website:main_page')
+
+    def form_valid(self, form):
+        code = form.cleaned_data.get('code')
+        if code == 'PYTHON2026':
+            messages.success(self.request, "کد تخفیف با موفقیت اعمال شد! شما ۲۰٪ تخفیف گرفتید.")
+            return super().form_valid(form)
+        else:
+            form.add_error('code', 'کد تخفیف وارد شده اشتباه یا منقضی می‌باشد.')
+            return super().form_invalid(form)

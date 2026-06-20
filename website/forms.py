@@ -42,3 +42,8 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ("title", "content")
+
+class DiscountForm(forms.Form):
+    code = forms.CharField(label='کد تخفیف', max_length=10, required=True, widget=forms.TextInput(attrs={
+        'placeholder':'لطفا کد تخفیف خود را وارد کنید ...'
+    }))
