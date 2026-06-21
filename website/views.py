@@ -7,8 +7,8 @@ from django.contrib import messages
 from django.views.generic import CreateView
 from django.shortcuts import get_object_or_404, redirect
 from blog.models import Post
-from .models import Comment, ArticleSuggestion, CourseRequest
-from .forms import CommentForm, suggestionForm, PostForm, DiscountForm
+from .models import Comment
+from .forms import CommentForm
 
 
 # Create your views here.
