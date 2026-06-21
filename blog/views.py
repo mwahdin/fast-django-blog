@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy, reverse
 from .models import Post, User, Category, Tag
 from django.db.models import Count, Q
 
@@ -97,8 +100,7 @@ class PostDetailView(PopularTagsMixin, DetailView):
     context_object_name = "post"
 
     def get_object(self, queryset=None):
-        obj = super().get_object(queryset=self.queryset)
-        
+        obj = super().get_object(queryset)         
         viewed_posts = self.request.session.get("viewed_posts", [])
         if obj.id not in viewed_posts:
             obj.views_count += 1
@@ -112,7 +114,6 @@ class PostDetailView(PopularTagsMixin, DetailView):
         context = super().get_context_data(**kwargs)
         current_post = self.object
         
-        # لود پست‌های مرتبط
         context["related_posts"] = (
             Post.objects.filter(
                 status=Post.Status.PUBLISHED, category__in=current_post.category.all()
@@ -151,3 +152,40 @@ class CategoryPostListView(ListView):
         context = super().get_context_data(**kwargs)
         context["category"] = self.category
         return context
+    
+
+class CreatePostView(LoginRequiredMixin, CreateView):
+    model = Post
+    template_name = 'blog/post_form.html'
+    fields = ['status', 'image', 'title', 'slug', 'content', 'snippet', 'category', 'tags']
+    success_url = reverse_lazy('blog:post_list')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+    model = Post
+    fields = ['status', 'image' ,'title', 'content', 'snippet', 'category', 'tags']
+    template_name = 'blog/edit_post.html'
+
+    def get_success_url(self):
+        return reverse('blog:post_detail', kwargs={'slug': self.object.slug})
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.author != self.request.user:
+            raise PermissionDenied
+        return obj
+    
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+    model = Post
+    template_name = 'blog/post_confirm_delete.html'
+    success_url = reverse_lazy('blog:post_list')
+
+    def get_object(self, queryset = None):
+        obj = super().get_object(queryset)
+        if obj.author != self.request.user:
+            raise PermissionDenied
+        return obj
