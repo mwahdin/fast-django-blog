@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
@@ -154,11 +154,13 @@ class CategoryPostListView(ListView):
         return context
     
 
-class CreatePostView(LoginRequiredMixin, CreateView):
+class CreatePostView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Post
     template_name = 'blog/post_form.html'
     fields = ['status', 'image', 'title', 'slug', 'content', 'snippet', 'category', 'tags']
     success_url = reverse_lazy('blog:post_list')
+    permission_required = 'blog.add_post'
+    raise_exception = True
 
     def form_valid(self, form):
         form.instance.author = self.request.user
