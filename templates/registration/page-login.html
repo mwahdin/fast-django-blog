@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+        <div class="container pt-70 pb-300">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 mx-auto text-center">
+                    
+                    <h3 class="mb-2">خوش آمدید!</h3>
+                    <p class="mb-4">امروز یک اکانت ایجاد کن و اجازه بده ذهنت را جهان ببیند!</p>
+                    
+                    <div class="border-top mt-5 mb-2 position-relative">
+                        <p class="position-absolute top-50 start-50 translate-middle bg-50 px-2 m-0">از طریق ایمیل ثبت نام کن</p>
+                    </div>
+
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        
+                        <div class="col-12 text-end mt-5">
+                            <label for="full_name" class="form-label text-dark">نام کامل *</label>
+                            <div class="input-group d-flex align-items-center mt-2">
+                                <div class="icon-input pe-3">
+                                    <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path class="stroke-dark" d="M12 11.25C13.7949 11.25 15.25 9.79493 15.25 8C15.25 6.20507 13.7949 4.75 12 4.75C10.2051 4.75 8.75 6.20507 8.75 8C8.75 9.79493 10.2051 11.25 12 11.25Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path class="stroke-dark" d="M6.84723 19.25H17.1522C18.2941 19.25 19.1737 18.2681 18.6405 17.2584C17.856 15.7731 16.0677 14 11.9997 14C7.93174 14 6.1434 15.7731 5.35897 17.2584C4.8257 18.2681 5.70531 19.25 6.84723 19.25Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <input type="text" class="form-control ms-0" name="full_name" placeholder="نام کامل شما" id="full_name" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-end mt-3">
+                            <label for="email" class="form-label text-dark">ایمیل *</label>
+                            <div class="input-group d-flex align-items-center mt-2">
+                                <div class="icon-input pe-3">
+                                    <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path class="stroke-dark" d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path class="stroke-dark" d="M5.5 8.5L12 13L18.5 8.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <input type="email" class="form-control ms-0" name="email" placeholder="example@gmail.com" id="email" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-end mt-3">
+                            <label for="password" class="form-label text-dark">رمز عبور *</label>
+                            <div class="input-group d-flex align-items-center mt-2">
+                                <div class="icon-input pe-3">
+                                    <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path class="stroke-dark" d="M4.75 5.75C4.75 5.19772 5.19772 4.75 5.75 4.75H9.25C9.80228 4.75 10.25 5.19772 10.25 5.75V9.25C10.25 9.80228 9.80228 10.25 9.25 10.25H5.75C5.19772 10.25 4.75 9.80228 4.75 9.25V5.75Z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path class="stroke-dark" d="M4.75 14.75C4.75 14.1977 5.19772 13.75 5.75 13.75H9.25C9.80228 13.75 10.25 14.1977 10.25 14.75V18.25C10.25 18.8023 9.80228 19.25 9.25 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V14.75Z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path class="stroke-dark" d="M13.75 5.75C13.75 5.19772 14.1977 4.75 14.75 4.75H18.25C18.8023 4.75 19.25 5.19772 19.25 5.75V9.25C19.25 9.80228 18.8023 10.25 18.25 10.25H14.75C14.1977 10.25 13.75 9.80228 13.75 9.25V5.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path class="stroke-dark" d="M13.75 14.75C13.75 14.1977 14.1977 13.75 14.75 13.75H18.25C18.8023 13.75 19.25 14.1977 19.25 14.75V18.25C19.25 18.8023 18.8023 19.25 18.25 19.25H14.75C14.1977 19.25 13.75 18.8023 13.75 18.25V14.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <input type="password" class="form-control ms-0" name="password" placeholder="حداقل ۸ کاراکتر" id="password" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-end mt-3">
+                            <label for="confirm_password" class="form-label text-dark">تکرار رمز عبور *</label>
+                            <div class="input-group d-flex align-items-center mt-2">
+                                <div class="icon-input pe-3">
+                                    <svg class="dark-mode-invert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path class="stroke-dark" d="M4.75 5.75C4.75 5.19772 5.19772 4.75 5.75 4.75H9.25C9.80228 4.75 10.25 5.19772 10.25 5.75V9.25C10.25 9.80228 9.80228 10.25 9.25 10.25H5.75C5.19772 10.25 4.75 9.80228 4.75 9.25V5.75Z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path class="stroke-dark" d="M4.75 14.75C4.75 14.1977 5.19772 13.75 5.75 13.75H9.25C9.80228 13.75 10.25 14.1977 10.25 14.75V18.25C10.25 18.8023 9.80228 19.25 9.25 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V14.75Z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path class="stroke-dark" d="M13.75 5.75C13.75 5.19772 14.1977 4.75 14.75 4.75H18.25C18.8023 4.75 19.25 5.19772 19.25 5.75V9.25C19.25 9.80228 18.8023 10.25 18.25 10.25H14.75C14.1977 10.25 13.75 9.80228 13.75 9.25V5.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path class="stroke-dark" d="M13.75 14.75C13.75 14.1977 14.1977 13.75 14.75 13.75H18.25C18.8023 13.75 19.25 14.1977 19.25 14.75V18.25C19.25 18.8023 18.8023 19.25 18.25 19.25H14.75C14.1977 19.25 13.75 18.8023 13.75 18.25V14.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <input type="password" class="form-control ms-0" name="confirm_password" placeholder="تکرار رمز عبور" id="confirm_password" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-5">
+                            <button type="submit" class="btn btn-dark w-100 gap-2 button-effect-1">
+                                ثبت نام و ایجاد حساب
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <p class="text-500 fs-7 mt-5">حساب کاربری دارید؟ <a href="#" class="text-900 text-decoration-underline fs-7">ورود</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-11-home-1 bg-white">
+            </div>
+        <div class="bg-50 pb-70"></div>
+    </main>
+{% endblock %}
