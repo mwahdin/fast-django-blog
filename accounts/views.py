@@ -12,7 +12,7 @@ User = get_user_model()
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     template_name = 'registration/page-login.html'
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('account:login')
 
 class LogInView(LoginView):
     pass
