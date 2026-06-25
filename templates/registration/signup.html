@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="container pt-70 pb-300">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-8">
+
+                <div class="text-center mb-5">
+                    <h3 class="mb-2">خوش آمدید!</h3>
+                    <p class="text-muted">
+                        امروز یک اکانت ایجاد کن و اجازه بده ذهنت را جهان ببیند.
+                    </p>
+                </div>
+
+                <div class="border-top position-relative mb-5">
+                    <span class="position-absolute top-50 start-50 translate-middle px-3 bg-white text-muted small">
+                        از طریق ایمیل ثبت نام کنید
+                    </span>
+                </div>
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger rounded-3">
+                            {% for error in form.non_field_errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="{{ form.first_name.id_for_label }}" class="form-label">
+                                نام *
+                            </label>
+
+                            <input
+                                type="text"
+                                name="{{ form.first_name.name }}"
+                                id="{{ form.first_name.id_for_label }}"
+                                value="{{ form.first_name.value|default:'' }}"
+                                class="form-control {% if form.first_name.errors %}is-invalid{% endif %}"
+                                placeholder="نام"
+                                autocomplete="given-name">
+
+                            {% for error in form.first_name.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="{{ form.last_name.id_for_label }}" class="form-label">
+                                نام خانوادگی *
+                            </label>
+
+                            <input
+                                type="text"
+                                name="{{ form.last_name.name }}"
+                                id="{{ form.last_name.id_for_label }}"
+                                value="{{ form.last_name.value|default:'' }}"
+                                class="form-control {% if form.last_name.errors %}is-invalid{% endif %}"
+                                placeholder="نام خانوادگی"
+                                autocomplete="family-name">
+
+                            {% for error in form.last_name.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="{{ form.email.id_for_label }}" class="form-label">
+                            ایمیل *
+                        </label>
+
+                        <input
+                            type="email"
+                            name="{{ form.email.name }}"
+                            id="{{ form.email.id_for_label }}"
+                            value="{{ form.email.value|default:'' }}"
+                            class="form-control {% if form.email.errors %}is-invalid{% endif %}"
+                            placeholder="example@gmail.com"
+                            autocomplete="email">
+
+                        {% for error in form.email.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="{{ form.password1.id_for_label }}" class="form-label">
+                            رمز عبور *
+                        </label>
+
+                        <input
+                            type="password"
+                            name="{{ form.password1.name }}"
+                            id="{{ form.password1.id_for_label }}"
+                            class="form-control {% if form.password1.errors %}is-invalid{% endif %}"
+                            placeholder="حداقل ۸ کاراکتر"
+                            autocomplete="new-password">
+
+                        {% for error in form.password1.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="{{ form.password2.id_for_label }}" class="form-label">
+                            تکرار رمز عبور *
+                        </label>
+
+                        <input
+                            type="password"
+                            name="{{ form.password2.name }}"
+                            id="{{ form.password2.id_for_label }}"
+                            class="form-control {% if form.password2.errors %}is-invalid{% endif %}"
+                            placeholder="تکرار رمز عبور"
+                            autocomplete="new-password">
+
+                        {% for error in form.password2.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="d-grid mt-5">
+                        <button type="submit" class="btn btn-dark button-effect-1">
+                            ثبت نام
+                        </button>
+                    </div>
+                </form>
+
+                <p class="text-center text-muted mt-5 mb-0">
+                    حساب کاربری دارید؟
+
+                    <a href="{% url 'account:login' %}"
+                       class="text-decoration-underline">
+                        ورود
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
