@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <main>
+    <div class="container pt-70 pb-300">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8">
+          <div class="text-center mb-5">
+            <h3 class="mb-2">خوش آمدید</h3>
+
+            <p class="text-muted">برای ادامه وارد حساب کاربری خود شوید.</p>
+          </div>
+
+          <div class="border-top position-relative mb-5">
+            <span class="position-absolute top-50 start-50 translate-middle px-3 bg-white text-muted small">ورود با ایمیل</span>
+          </div>
+
+          <form method="post" novalidate>
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+              <div class="alert alert-danger rounded-3">
+                {% for error in form.non_field_errors %}
+                  <div>{{ error }}</div>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            <!-- ایمیل -->
+
+            <div class="mb-4">
+              <label for="{{ form.username.id_for_label }}" class="form-label">ایمیل</label>
+
+              <input type="email" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" value="{{ form.username.value|default:'' }}" class="form-control {% if form.username.errors %}is-invalid{% endif %}" placeholder="example@gmail.com" autocomplete="email" />
+
+              {% for error in form.username.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+              {% endfor %}
+            </div>
+
+            <!-- رمز عبور -->
+
+            <div class="mb-4">
+              <label for="{{ form.password.id_for_label }}" class="form-label">رمز عبور</label>
+
+              <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}" class="form-control {% if form.password.errors %}is-invalid{% endif %}" placeholder="رمز عبور" autocomplete="current-password" />
+
+              {% for error in form.password.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+              {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="remember-me" />
+
+                <label class="form-check-label" for="remember-me">مرا به خاطر بسپار</label>
+              </div>
+
+              <a href="{% url 'account:password_reset' %}" class="text-decoration-none">فراموشی رمز عبور</a>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-dark button-effect-1">ورود</button>
+            </div>
+          </form>
+
+          <p class="text-center text-muted mt-5 mb-0">
+            حساب کاربری ندارید؟
+
+            <a href="{% url 'account:signup' %}" class="text-decoration-underline">ثبت نام</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
