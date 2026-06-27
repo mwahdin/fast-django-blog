@@ -23,6 +23,7 @@ class LogInView(LoginView):
 class PasswordReset(PasswordResetView):
     template_name = 'registration/password_reset.html'
     success_url = reverse_lazy('account:password_reset_done')
+    email_template_name = 'registration/password_reset_email.html'
 
 class PasswordResetDone(PasswordResetDoneView):
     template_name ='registration/password_reset_done.html'
