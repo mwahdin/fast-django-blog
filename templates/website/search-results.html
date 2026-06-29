@@ -2,703 +2,109 @@
 {% load static %}
 
 {% block content %}
-
-<main>
+  <main>
     <!-- prettier-ignore -->
     <!-- Breadcumb -->
     <section class="sec-breadcumb">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ul class="breadcrumb list-unstyled d-flex flex-row gap-2 align-items-center m-0 pe-0 py-4">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-600 fs-7 hover-dark">صفحه
-                                    اصلی</a></li>
-                            <li class="breadcrumb-item">
-                                <span class="icon-shape icon-xxs">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"
-                                        fill="none">
-                                        <path d="M6.125 4.5625L9.5625 7.84375L6.125 11.125" stroke="#626568"
-                                            stroke-width="0.9375" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                            </li>
-                            <li class="breadcrumb-item active text-dark fs-7" aria-current="page">نتایج جستجو</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="row align-items-end">
-                <div class="col-lg-6 col-12">
-                    <div class="title">
-                        <h4 class="mb-0 ds-5">
-                            <span class="text-anime-style-2"> «نوآوری» </span>
-                            <span class="text-600 fw-regular fs-6 bg-white rounded-8 p-2">85</span>
-                        </h4>
-                        <p class="fs-7 mb-0 text-anime-style-1">ما ۸۵ نتیجه برای «نوآوری» پیدا کردیم</p>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb list-unstyled d-flex flex-row gap-2 align-items-center m-0 pe-0 py-4">
+                <li class="breadcrumb-item">
+                  <a href="index.html" class="text-600 fs-7 hover-dark">صفحه اصلی</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <span class="icon-shape icon-xxs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                      <path d="M6.125 4.5625L9.5625 7.84375L6.125 11.125" stroke="#626568" stroke-width="0.9375" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </li>
+                <li class="breadcrumb-item active text-dark fs-7" aria-current="page">نتایج جستجو</li>
+              </ul>
+            </nav>
+          </div>
         </div>
+        <div class="row align-items-end">
+          <div class="col-lg-6 col-12">
+            <div class="title">
+              <h4 class="mb-0 ds-5">
+                <span class="text-anime-style-2">«{{ request.GET.q }}»</span>
+                <span class="text-600 fw-regular fs-6 bg-white rounded-8 p-2">{{ posts.count }}</span>
+              </h4>
+              <p class="fs-7 mb-0 text-anime-style-1">ما {{ posts.count }} نتیجه برای «{{ request.GET.q }}» پیدا کردیم</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!--Archive 4 Section 1-->
+    <!-- Archive 4 Section 1 -->
     <section class="sec-1-archive-4">
-        <div class="container">
-            <div class="row mt-4 g-4">
-                <!-- prettier-ignore -->
-                <div class="col-lg-6 col-12">
-                    <div class="article card-11">
-                        <div class="hover-effect-1">
-                            <div class="card-img-top thumbnail">
-                                <a href="single-3.html">
-                                    <img src="{% static 'assets/imgs/page/img-102.png' %}" alt="magzin"
-                                        class="cover-image">
-                                </a>
-                                <a href="page-search-results.html#" class="badge bg-2 fs-8">سبک زندگی</a>
-                            </div>
-                        </div>
-                        <div class="card-body hover-up">
-                            <div class="card-corner">
-                                <a href="single-3.html" class="arrow-box">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <div class="curve-one"></div>
-                                <div class="curve-two"></div>
-                            </div>
-                            <div class="left ps-5">
-                                <a href="single-3.html" class="hover-underline">
-                                    <h5 class="card-title mb-0 text-truncate-2 fs-4">احیای هنر کلاسیک در عصر دیجیتال
-                                    </h5>
-                                </a>
-                                <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">مد شهری که زمانی به عنوان
-                                    یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
-                                    پایتخت‌های بزرگ مد راه یافته است.</p>
-                                <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
-                                    <a href="https://pixoradesign.ir/magzin/theme/%40%40link-author.html"
-                                        class="author d-flex align-items-center gap-2">
-                                        <img class="avatar avatar-md rounded-circle"
-                                            src="{% static 'assets/imgs/template/author/author-18.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">عاطفه راد</span>
-                                    </a>
-                                    <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
-                                        <li>
-                                            <p class="fs-8 m-0">13 دی، 1403</p>
-                                        </li>
-                                    </ul>
-                                    <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
-                                        <a href="page-search-results.html#" class="comment fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2.50018 5.43423C2.50018 4.26961 3.44494 3.3255 4.61035 3.3255H15.39C16.5554 3.3255 17.5002 4.26961 17.5002 5.43422V13.1078C17.5002 14.2724 16.5554 15.2165 15.39 15.2165H6.3295L3.41902 17.3786C3.24443 17.5083 3.01159 17.5285 2.81722 17.4309C2.62285 17.3333 2.50018 17.1345 2.50018 16.9171V5.43423ZM4.61035 4.47571C4.08062 4.47571 3.65118 4.90485 3.65118 5.43423V15.7729L5.79569 14.1799C5.89495 14.1062 6.01534 14.0663 6.13902 14.0663H15.39C15.9197 14.0663 16.3492 13.6372 16.3492 13.1078V5.43422C16.3492 4.90485 15.9197 4.47571 15.39 4.47571H4.61035Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="98"></span>
-                                        </a>
-                                        <a href="page-search-results.html#" class="readers fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2024 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2024 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="162"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <a href="page-search-results.html#" class="book-mark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z"
-                                            stroke="#626568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+      <div class="container">
+        <div class="row mt-4 g-4">
+          {% if posts %}
+            {% for post in posts %}
+              <div class="col-lg-6 col-12">
+                <div class="article card-11">
+                  <div class="hover-effect-1">
+                    <div class="card-img-top thumbnail">
+                      <a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="{{ post.title }}" class="cover-image" /></a>
+                      {% if post.category.all %}
+                        <a href="{{ post.category.first.get_absolute_url }}" class="badge bg-2 fs-8">{{ post.category.first.title }}</a>
+                      {% endif %}
                     </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="article card-11">
-                        <div class="hover-effect-1">
-                            <div class="card-img-top thumbnail">
-                                <a href="single-3.html">
-                                    <img src="{% static 'assets/imgs/page/img-103.png' %}" alt="magzin"
-                                        class="cover-image">
-                                </a>
-                                <a href="page-search-results.html#" class="badge bg-2 fs-8">نوآوری</a>
-                            </div>
-                        </div>
-                        <div class="card-body hover-up">
-                            <div class="card-corner">
-                                <a href="single-3.html" class="arrow-box">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <div class="curve-one"></div>
-                                <div class="curve-two"></div>
-                            </div>
-                            <div class="left ps-5">
-                                <a href="single-3.html" class="hover-underline">
-                                    <h5 class="card-title mb-0 text-truncate-2 fs-4">تأثیر هوش مصنوعی بر هنر و خلاقیت
-                                    </h5>
-                                </a>
-                                <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">مد شهری که زمانی به عنوان
-                                    یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
-                                    پایتخت‌های بزرگ مد راه یافته است.</p>
-                                <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
-                                    <a href="https://pixoradesign.ir/magzin/theme/%40%40link-author.html"
-                                        class="author d-flex align-items-center gap-2">
-                                        <img class="avatar avatar-md rounded-circle"
-                                            src="{% static 'assets/imgs/template/author/author-14.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">مهسا محمدی</span>
-                                    </a>
-                                    <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
-                                        <li>
-                                            <p class="fs-8 m-0">13 دی، 1403</p>
-                                        </li>
-                                    </ul>
-                                    <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
-                                        <a href="page-search-results.html#" class="comment fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2.50018 5.43423C2.50018 4.26961 3.44494 3.3255 4.61035 3.3255H15.39C16.5554 3.3255 17.5002 4.26961 17.5002 5.43422V13.1078C17.5002 14.2724 16.5554 15.2165 15.39 15.2165H6.3295L3.41902 17.3786C3.24443 17.5083 3.01159 17.5285 2.81722 17.4309C2.62285 17.3333 2.50018 17.1345 2.50018 16.9171V5.43423ZM4.61035 4.47571C4.08062 4.47571 3.65118 4.90485 3.65118 5.43423V15.7729L5.79569 14.1799C5.89495 14.1062 6.01534 14.0663 6.13902 14.0663H15.39C15.9197 14.0663 16.3492 13.6372 16.3492 13.1078V5.43422C16.3492 4.90485 15.9197 4.47571 15.39 4.47571H4.61035Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="98"></span>
-                                        </a>
-                                        <a href="page-search-results.html#" class="readers fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2024 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2024 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="162"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <a href="page-search-results.html#" class="book-mark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z"
-                                            stroke="#626568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+                  </div>
+                  <div class="card-body hover-up">
+                    <div class="card-corner">
+                      <a href="{{ post.get_absolute_url }}" class="arrow-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </a>
+                      <div class="curve-one"></div>
+                      <div class="curve-two"></div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="article card-11">
-                        <div class="hover-effect-1">
-                            <div class="card-img-top thumbnail">
-                                <a href="single-3.html">
-                                    <img src="{% static 'assets/imgs/page/img-104.png' %}" alt="magzin"
-                                        class="cover-image">
-                                </a>
-                                <a href="page-search-results.html#" class="badge bg-2 fs-8">مجسمه سازی</a>
-                            </div>
+                    <div class="left ps-5">
+                      <a href="{{ post.get_absolute_url }}" class="hover-underline"><h5 class="card-title mb-0 text-truncate-2 fs-4">{{ post.title }}</h5></a>
+                      <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">{{ post.snippet }}</p>
+
+                      <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
+                        <div class="author d-flex align-items-center gap-2">
+                          <span class="fs-7 text-dark fw-regular">{{ post.author.get_full_name|default:post.author.username }}</span>
                         </div>
-                        <div class="card-body hover-up">
-                            <div class="card-corner">
-                                <a href="single-3.html" class="arrow-box">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <div class="curve-one"></div>
-                                <div class="curve-two"></div>
-                            </div>
-                            <div class="left ps-5">
-                                <a href="single-3.html" class="hover-underline">
-                                    <h5 class="card-title mb-0 text-truncate-2 fs-4">گالری پوشاک: ترکیب هنر با طراحی
-                                        مدرن</h5>
-                                </a>
-                                <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">مد شهری که زمانی به عنوان
-                                    یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
-                                    پایتخت‌های بزرگ مد راه یافته است.</p>
-                                <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
-                                    <a href="https://pixoradesign.ir/magzin/theme/%40%40link-author.html"
-                                        class="author d-flex align-items-center gap-2">
-                                        <img class="avatar avatar-md rounded-circle"
-                                            src="{% static 'assets/imgs/template/author/author-4.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">زهره عبدی</span>
-                                    </a>
-                                    <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
-                                        <li>
-                                            <p class="fs-8 m-0">13 دی، 1403</p>
-                                        </li>
-                                    </ul>
-                                    <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
-                                        <a href="page-search-results.html#" class="comment fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2.50018 5.43423C2.50018 4.26961 3.44494 3.3255 4.61035 3.3255H15.39C16.5554 3.3255 17.5002 4.26961 17.5002 5.43422V13.1078C17.5002 14.2724 16.5554 15.2165 15.39 15.2165H6.3295L3.41902 17.3786C3.24443 17.5083 3.01159 17.5285 2.81722 17.4309C2.62285 17.3333 2.50018 17.1345 2.50018 16.9171V5.43423ZM4.61035 4.47571C4.08062 4.47571 3.65118 4.90485 3.65118 5.43423V15.7729L5.79569 14.1799C5.89495 14.1062 6.01534 14.0663 6.13902 14.0663H15.39C15.9197 14.0663 16.3492 13.6372 16.3492 13.1078V5.43422C16.3492 4.90485 15.9197 4.47571 15.39 4.47571H4.61035Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="98"></span>
-                                        </a>
-                                        <a href="page-search-results.html#" class="readers fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2024 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2024 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="162"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <a href="page-search-results.html#" class="book-mark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z"
-                                            stroke="#626568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
+                        <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
+                          <li>
+                            <p class="fs-8 m-0">{{ post.publish_date|date:'Y-m-d' }}</p>
+                          </li>
+                        </ul>
+
+                        <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
+                          <span class="readers fs-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M17.186 10.3224C15.734 13.039..." fill="#626568" />
+                            </svg>
+                            <span class="text-nowrap">{{ post.views_count }} بازدید</span>
+                          </span>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-                <div class="col-lg-6 col-12">
-                    <div class="article card-11">
-                        <div class="hover-effect-1">
-                            <div class="card-img-top thumbnail">
-                                <a href="single-3.html">
-                                    <img src="{% static 'assets/imgs/page/img-105.png' %}" alt="magzin"
-                                        class="cover-image">
-                                </a>
-                                <a href="page-search-results.html#" class="badge bg-2 fs-8">دیجیتال</a>
-                            </div>
-                        </div>
-                        <div class="card-body hover-up">
-                            <div class="card-corner">
-                                <a href="single-3.html" class="arrow-box">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <div class="curve-one"></div>
-                                <div class="curve-two"></div>
-                            </div>
-                            <div class="left ps-5">
-                                <a href="single-3.html" class="hover-underline">
-                                    <h5 class="card-title mb-0 text-truncate-2 fs-4">مد، نکات، روندها و سبک سلبریتی‌ها
-                                    </h5>
-                                </a>
-                                <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">مد شهری که زمانی به عنوان
-                                    یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
-                                    پایتخت‌های بزرگ مد راه یافته است.</p>
-                                <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
-                                    <a href="https://pixoradesign.ir/magzin/theme/%40%40link-author.html"
-                                        class="author d-flex align-items-center gap-2">
-                                        <img class="avatar avatar-md rounded-circle"
-                                            src="{% static 'assets/imgs/template/author/author-5.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">مهدی محسنی</span>
-                                    </a>
-                                    <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
-                                        <li>
-                                            <p class="fs-8 m-0">13 دی، 1403</p>
-                                        </li>
-                                    </ul>
-                                    <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
-                                        <a href="page-search-results.html#" class="comment fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2.50018 5.43423C2.50018 4.26961 3.44494 3.3255 4.61035 3.3255H15.39C16.5554 3.3255 17.5002 4.26961 17.5002 5.43422V13.1078C17.5002 14.2724 16.5554 15.2165 15.39 15.2165H6.3295L3.41902 17.3786C3.24443 17.5083 3.01159 17.5285 2.81722 17.4309C2.62285 17.3333 2.50018 17.1345 2.50018 16.9171V5.43423ZM4.61035 4.47571C4.08062 4.47571 3.65118 4.90485 3.65118 5.43423V15.7729L5.79569 14.1799C5.89495 14.1062 6.01534 14.0663 6.13902 14.0663H15.39C15.9197 14.0663 16.3492 13.6372 16.3492 13.1078V5.43422C16.3492 4.90485 15.9197 4.47571 15.39 4.47571H4.61035Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="98"></span>
-                                        </a>
-                                        <a href="page-search-results.html#" class="readers fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2024 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2024 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="162"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <a href="page-search-results.html#" class="book-mark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z"
-                                            stroke="#626568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="article card-11">
-                        <div class="hover-effect-1">
-                            <div class="card-img-top thumbnail">
-                                <a href="single-3.html">
-                                    <img src="{% static 'assets/imgs/page/img-106.png' %}" alt="magzin"
-                                        class="cover-image">
-                                </a>
-                                <a href="page-search-results.html#" class="badge bg-2 fs-8">پوشاک</a>
-                            </div>
-                        </div>
-                        <div class="card-body hover-up">
-                            <div class="card-corner">
-                                <a href="single-3.html" class="arrow-box">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <div class="curve-one"></div>
-                                <div class="curve-two"></div>
-                            </div>
-                            <div class="left ps-5">
-                                <a href="single-3.html" class="hover-underline">
-                                    <h5 class="card-title mb-0 text-truncate-2 fs-4">چرا فریلنسرها آینده کار را تغییر
-                                        می‌دهند؟</h5>
-                                </a>
-                                <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">مد شهری که زمانی به عنوان
-                                    یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
-                                    پایتخت‌های بزرگ مد راه یافته است.</p>
-                                <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
-                                    <a href="https://pixoradesign.ir/magzin/theme/%40%40link-author.html"
-                                        class="author d-flex align-items-center gap-2">
-                                        <img class="avatar avatar-md rounded-circle"
-                                            src="{% static 'assets/imgs/template/author/author-17.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">مریم صالحی</span>
-                                    </a>
-                                    <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
-                                        <li>
-                                            <p class="fs-8 m-0">13 دی، 1403</p>
-                                        </li>
-                                    </ul>
-                                    <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
-                                        <a href="page-search-results.html#" class="comment fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2.50018 5.43423C2.50018 4.26961 3.44494 3.3255 4.61035 3.3255H15.39C16.5554 3.3255 17.5002 4.26961 17.5002 5.43422V13.1078C17.5002 14.2724 16.5554 15.2165 15.39 15.2165H6.3295L3.41902 17.3786C3.24443 17.5083 3.01159 17.5285 2.81722 17.4309C2.62285 17.3333 2.50018 17.1345 2.50018 16.9171V5.43423ZM4.61035 4.47571C4.08062 4.47571 3.65118 4.90485 3.65118 5.43423V15.7729L5.79569 14.1799C5.89495 14.1062 6.01534 14.0663 6.13902 14.0663H15.39C15.9197 14.0663 16.3492 13.6372 16.3492 13.1078V5.43422C16.3492 4.90485 15.9197 4.47571 15.39 4.47571H4.61035Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="98"></span>
-                                        </a>
-                                        <a href="page-search-results.html#" class="readers fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2024 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2024 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="162"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <a href="page-search-results.html#" class="book-mark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z"
-                                            stroke="#626568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="article card-11">
-                        <div class="hover-effect-1">
-                            <div class="card-img-top thumbnail">
-                                <a href="single-3.html">
-                                    <img src="{% static 'assets/imgs/page/img-107.png' %}" alt="magzin"
-                                        class="cover-image">
-                                </a>
-                                <a href="page-search-results.html#" class="badge bg-2 fs-8">ادبیات</a>
-                            </div>
-                        </div>
-                        <div class="card-body hover-up">
-                            <div class="card-corner">
-                                <a href="single-3.html" class="arrow-box">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <div class="curve-one"></div>
-                                <div class="curve-two"></div>
-                            </div>
-                            <div class="left ps-5">
-                                <a href="single-3.html" class="hover-underline">
-                                    <h5 class="card-title mb-0 text-truncate-2 fs-4">اهمیت فرهنگی رقص در جوامع مختلف
-                                    </h5>
-                                </a>
-                                <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">مد شهری که زمانی به عنوان
-                                    یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
-                                    پایتخت‌های بزرگ مد راه یافته است.</p>
-                                <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
-                                    <a href="https://pixoradesign.ir/magzin/theme/%40%40link-author.html"
-                                        class="author d-flex align-items-center gap-2">
-                                        <img class="avatar avatar-md rounded-circle"
-                                            src="{% static 'assets/imgs/template/author/author-18.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">فریبا متخصص</span>
-                                    </a>
-                                    <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
-                                        <li>
-                                            <p class="fs-8 m-0">13 دی، 1403</p>
-                                        </li>
-                                    </ul>
-                                    <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
-                                        <a href="page-search-results.html#" class="comment fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2.50018 5.43423C2.50018 4.26961 3.44494 3.3255 4.61035 3.3255H15.39C16.5554 3.3255 17.5002 4.26961 17.5002 5.43422V13.1078C17.5002 14.2724 16.5554 15.2165 15.39 15.2165H6.3295L3.41902 17.3786C3.24443 17.5083 3.01159 17.5285 2.81722 17.4309C2.62285 17.3333 2.50018 17.1345 2.50018 16.9171V5.43423ZM4.61035 4.47571C4.08062 4.47571 3.65118 4.90485 3.65118 5.43423V15.7729L5.79569 14.1799C5.89495 14.1062 6.01534 14.0663 6.13902 14.0663H15.39C15.9197 14.0663 16.3492 13.6372 16.3492 13.1078V5.43422C16.3492 4.90485 15.9197 4.47571 15.39 4.47571H4.61035Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="98"></span>
-                                        </a>
-                                        <a href="page-search-results.html#" class="readers fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2024 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2024 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="162"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <a href="page-search-results.html#" class="book-mark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z"
-                                            stroke="#626568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="article card-11">
-                        <div class="hover-effect-1">
-                            <div class="card-img-top thumbnail">
-                                <a href="single-3.html">
-                                    <img src="{% static 'assets/imgs/page/img-108.png' %}" alt="magzin"
-                                        class="cover-image">
-                                </a>
-                                <a href="page-search-results.html#" class="badge bg-2 fs-8">تاریخ</a>
-                            </div>
-                        </div>
-                        <div class="card-body hover-up">
-                            <div class="card-corner">
-                                <a href="single-3.html" class="arrow-box">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <div class="curve-one"></div>
-                                <div class="curve-two"></div>
-                            </div>
-                            <div class="left ps-5">
-                                <a href="single-3.html" class="hover-underline">
-                                    <h5 class="card-title mb-0 text-truncate-2 fs-4">بازاندیشی مصرف در عصر مینیمالیسم
-                                    </h5>
-                                </a>
-                                <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">مد شهری که زمانی به عنوان
-                                    یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
-                                    پایتخت‌های بزرگ مد راه یافته است.</p>
-                                <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
-                                    <a href="https://pixoradesign.ir/magzin/theme/%40%40link-author.html"
-                                        class="author d-flex align-items-center gap-2">
-                                        <img class="avatar avatar-md rounded-circle"
-                                            src="{% static 'assets/imgs/template/author/author-12.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">حامد کریمی</span>
-                                    </a>
-                                    <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
-                                        <li>
-                                            <p class="fs-8 m-0">13 دی، 1403</p>
-                                        </li>
-                                    </ul>
-                                    <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
-                                        <a href="page-search-results.html#" class="comment fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2.50018 5.43423C2.50018 4.26961 3.44494 3.3255 4.61035 3.3255H15.39C16.5554 3.3255 17.5002 4.26961 17.5002 5.43422V13.1078C17.5002 14.2724 16.5554 15.2165 15.39 15.2165H6.3295L3.41902 17.3786C3.24443 17.5083 3.01159 17.5285 2.81722 17.4309C2.62285 17.3333 2.50018 17.1345 2.50018 16.9171V5.43423ZM4.61035 4.47571C4.08062 4.47571 3.65118 4.90485 3.65118 5.43423V15.7729L5.79569 14.1799C5.89495 14.1062 6.01534 14.0663 6.13902 14.0663H15.39C15.9197 14.0663 16.3492 13.6372 16.3492 13.1078V5.43422C16.3492 4.90485 15.9197 4.47571 15.39 4.47571H4.61035Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="98"></span>
-                                        </a>
-                                        <a href="page-search-results.html#" class="readers fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2024 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2024 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="162"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <a href="page-search-results.html#" class="book-mark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z"
-                                            stroke="#626568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="article card-11">
-                        <div class="hover-effect-1">
-                            <div class="card-img-top thumbnail">
-                                <a href="single-3.html">
-                                    <img src="{% static 'assets/imgs/page/img-39.png' %}" alt="magzin"
-                                        class="cover-image">
-                                </a>
-                                <a href="page-search-results.html#" class="badge bg-2 fs-8">سبک زندگی</a>
-                            </div>
-                        </div>
-                        <div class="card-body hover-up">
-                            <div class="card-corner">
-                                <a href="single-3.html" class="arrow-box">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="#0E0E0F" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M19 12H4.75" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <div class="curve-one"></div>
-                                <div class="curve-two"></div>
-                            </div>
-                            <div class="left ps-5">
-                                <a href="single-3.html" class="hover-underline">
-                                    <h5 class="card-title mb-0 text-truncate-2 fs-4">کارگردانان نمادین سینما و تأثیر آن
-                                        بر سینما</h5>
-                                </a>
-                                <p class="card-text text-600 fs-7 mb-0 mt-4 text-truncate-2">مد شهری که زمانی به عنوان
-                                    یک پدیده ضدفرهنگ کنار گذاشته می‌شد، اکنون از پیاده‌روهای شهرها به صحنه‌های مد در
-                                    پایتخت‌های بزرگ مد راه یافته است.</p>
-                                <div class="bottom mt-auto d-flex flex-wrap align-items-center gap-2 pt-4">
-                                    <a href="https://pixoradesign.ir/magzin/theme/%40%40link-author.html"
-                                        class="author d-flex align-items-center gap-2">
-                                        <img class="avatar avatar-md rounded-circle"
-                                            src="{% static 'assets/imgs/template/author/author-9.png' %}" alt="magzin">
-                                        <span class="fs-7 text-dark fw-regular">شیما علیمردانی</span>
-                                    </a>
-                                    <ul class="d-flex align-items-center gap-4 text-600 m-0 pe-3">
-                                        <li>
-                                            <p class="fs-8 m-0">13 دی، 1403</p>
-                                        </li>
-                                    </ul>
-                                    <div class="ms-md-auto ms-5 d-flex align-items-center gap-3 me-5">
-                                        <a href="page-search-results.html#" class="comment fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M2.50018 5.43423C2.50018 4.26961 3.44494 3.3255 4.61035 3.3255H15.39C16.5554 3.3255 17.5002 4.26961 17.5002 5.43422V13.1078C17.5002 14.2724 16.5554 15.2165 15.39 15.2165H6.3295L3.41902 17.3786C3.24443 17.5083 3.01159 17.5285 2.81722 17.4309C2.62285 17.3333 2.50018 17.1345 2.50018 16.9171V5.43423ZM4.61035 4.47571C4.08062 4.47571 3.65118 4.90485 3.65118 5.43423V15.7729L5.79569 14.1799C5.89495 14.1062 6.01534 14.0663 6.13902 14.0663H15.39C15.9197 14.0663 16.3492 13.6372 16.3492 13.1078V5.43422C16.3492 4.90485 15.9197 4.47571 15.39 4.47571H4.61035Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="98"></span>
-                                        </a>
-                                        <a href="page-search-results.html#" class="readers fs-8">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.186 10.3224C15.734 13.039 12.9803 14.7266 10.001 14.7266C7.01977 14.7266 4.26612 13.039 2.81407 10.3224C2.70224 10.1114 2.70224 9.88843 2.81407 9.67767C4.26612 6.96107 7.01977 5.27366 10.001 5.27366C12.9803 5.27366 15.7339 6.96107 17.186 9.67767C17.2998 9.88843 17.2998 10.1114 17.186 10.3224ZM18.1135 9.13905C16.4744 6.07185 13.366 4.16669 10.001 4.16669C6.63409 4.16669 3.52561 6.07185 1.88652 9.13905C1.59341 9.68631 1.59341 10.3137 1.88652 10.8606C3.52561 13.9278 6.63409 15.8334 10.001 15.8334C13.366 15.8334 16.4744 13.9278 18.1135 10.8606C18.4066 10.3138 18.4066 9.68631 18.1135 9.13905ZM10.001 12.2707C11.2024 12.2707 12.18 11.2522 12.18 9.99993C12.18 8.7477 11.2024 7.72912 10.001 7.72912C8.79769 7.72912 7.82002 8.7477 7.82002 9.99993C7.82002 11.2522 8.79773 12.2707 10.001 12.2707ZM10.001 6.62215C8.21147 6.62215 6.75752 8.13757 6.75752 9.99997C6.75752 11.8628 8.21151 13.3776 10.001 13.3776C11.7886 13.3776 13.2425 11.8627 13.2425 9.99997C13.2425 8.13757 11.7886 6.62215 10.001 6.62215Z"
-                                                    fill="#626568" />
-                                            </svg>
-                                            <span class="odometer text-nowrap" data-count="162"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <a href="page-search-results.html#" class="book-mark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M5.625 5.62498C5.625 4.7045 6.37119 3.95831 7.29167 3.95831H12.7083C13.6288 3.95831 14.375 4.7045 14.375 5.62498V16.0416L10 12.2916L5.625 16.0416V5.62498Z"
-                                            stroke="#626568" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="col-12 text-center py-5">
+              <h5 class="text-muted">نتیجه‌ای برای جستجوی شما یافت نشد.</h5>
+              <p class="fs-7 text-600 mt-2">لطفاً از کلمات کلیدی دیگری استفاده کنید یا املای کلمات را بررسی کنید.</p>
             </div>
-            <div class="row mt-5">
-                <!-- prettier-ignore -->
-                <div class="col-12 d-flex justify-content-center align-items-center">
+          {% endif %}
+        </div>
+        <div class="row mt-5">
+          <!-- prettier-ignore -->
+          <div class="col-12 d-flex justify-content-center align-items-center">
                     <nav>
                         <ul class="pagination gap-2">
                             <li class="page-item">
@@ -752,39 +158,35 @@
                         </ul>
                     </nav>
                 </div>
-            </div>
         </div>
+      </div>
     </section>
-    <!--Home 4 Section 6-->
+    <!-- Home 4 Section 6 -->
     <section class="sec-6-home-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="block-newsletter bg-transparent border-0 position-relative">
-                        <div class="newsletter text-center">
-                            <div class="block-title">
-                                <h4 class="mb-3 text-anime-style-3">عضویت در خبرنامه</h4>
-                                <p class="mb-4">
-                                    برای دریافت جدیدترین مطالب در خبرنامه ایمیلی ما عضو شوید <br
-                                        class="d-none d-lg-block">
-                                    پست‌ها مستقیماً به ایمیل شما ارسال می‌شوند.
-                                </p>
-                            </div>
-                            <form action="page-search-results.html#" class="position-relative">
-                                <div
-                                    class="d-flex flex-wrap flex-md-nowrap justify-content-center gap-2 align-items-center mb-4">
-                                    <input class="form-control" type="text" placeholder="ایمیل">
-                                    <button class="btn btn-dark button-effect-1" type="submit">عضویت</button>
-                                </div>
-                                <span class="fs-7 fw-regular">شما فقط به‌روزرسانی‌های خبری معتبر را دریافت خواهید کرد -
-                                    بدون هرزنامه.</span>
-                            </form>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <div class="block-newsletter bg-transparent border-0 position-relative">
+              <div class="newsletter text-center">
+                <div class="block-title">
+                  <h4 class="mb-3 text-anime-style-3">عضویت در خبرنامه</h4>
+                  <p class="mb-4">
+                    برای دریافت جدیدترین مطالب در خبرنامه ایمیلی ما عضو شوید <br class="d-none d-lg-block" />
+                    پست‌ها مستقیماً به ایمیل شما ارسال می‌شوند.
+                  </p>
                 </div>
+                <form action="page-search-results.html#" class="position-relative">
+                  <div class="d-flex flex-wrap flex-md-nowrap justify-content-center gap-2 align-items-center mb-4">
+                    <input class="form-control" type="text" placeholder="ایمیل" />
+                    <button class="btn btn-dark button-effect-1" type="submit">عضویت</button>
+                  </div>
+                  <span class="fs-7 fw-regular">شما فقط به‌روزرسانی‌های خبری معتبر را دریافت خواهید کرد - بدون هرزنامه.</span>
+                </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-</main>
-
+  </main>
 {% endblock %}
