@@ -160,3 +160,35 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
         if obj.author != self.request.user:
             raise PermissionDenied
         return obj
+
+
+
+# ==============================================================================
+# 🏋️‍♂️ PRACTICE VIEWS (QuerySet Optimization & Overriding Methods Practice)
+# ==============================================================================
+
+class UserPosts(LoginRequiredMixin ,ListView):
+    
+    model = Post
+    template_name = "blog/category.html"
+    context_object_name = 'my_posts'
+
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user).prefetch_related('tags')
+    
+class MustViewPost(LoginRequiredMixin, ListView):
+    model = Post
+    template_name = "blog/category.html"
+    context_object_name = 'top_five_posts'
+
+    def get_queryset(self):
+        return Post.objects.filter(status= Post.Status.PUBLISHED).prefetch_related('category').select_related('author').order_by('-views_count')[:5]
+    
+
+class AllTagListView(ListView):
+    model = Tag
+    template_name = "blog/category.html"
+    context_object_name = 'all_tags'
+
+    def get_queryset(self):
+        return Tag.objects.annotate(published_posts_count=Count('posts', filter=Q(posts__status=Post.Status.PUBLISHED))).order_by('-published_posts_count')
