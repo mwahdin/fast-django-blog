@@ -162,6 +162,24 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
         return obj
 
 
+class SearchResultsView(ListView):
+    model=Post
+    template_name="search-results.html"
+    context_object_name = "posts"
+    paginate_by = 10
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+
+        if query:
+            return Post.objects.filter(status=Post.Status.PUBLISHED).select_related('author').prefetch_related('category', 'tags').filter(
+                Q(title__icontains=query) | 
+                Q(snippet__icontains=query) | 
+                Q(content__icontains=query)
+            ).order_by("-publish_date")
+            
+        return Post.objects.none()
+
+
 
 # ==============================================================================
 # 🏋️‍♂️ PRACTICE VIEWS (QuerySet Optimization & Overriding Methods Practice)
