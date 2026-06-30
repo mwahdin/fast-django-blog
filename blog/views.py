@@ -282,3 +282,12 @@ class PostDetailView(DetailView):
         
         else:
             return obj
+        
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['title', 'content', 'snippet', 'category']  
+    template_name = "blog/post_form.html"
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
