@@ -253,9 +253,18 @@ class TrendingThisWeekListView(ListView):
     context_object_name = "posts"
 
     def get_queryset(self):
-        # ۱. تاریخ ۷ روز پیش رو توی یک متغیر حساب کن
         time_threshold = timezone.now() - datetime.timedelta(days=7)
         
         queryset = Post.objects.filter(status=Post.Status.PUBLISHED).select_related('author').prefetch_related('category', 'tags')
         queryset = queryset.filter(publish_date__gte=time_threshold).order_by('-views_count')
         return queryset
+class HomeBlogView(ListView):
+    model=Post
+    template_name="blog/home.html"
+    context_object_name='posts'
+
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["categorys"] = Category.objects.all()
+        return context
+    
