@@ -267,4 +267,18 @@ class HomeBlogView(ListView):
         context = super().get_context_data(**kwargs)
         context["categorys"] = Category.objects.all()
         return context
-    
+
+from django.http import Http404
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "blog/post_detail.html"
+
+    def get_object(self, queryset=None):
+       
+        obj = super().get_object(queryset=None)
+        
+        if obj.status == Post.Status.DRAFT and obj.author != self.request.user:
+            raise Http404("این مقاله هنوز منتشر نشده است.")
+        
+        else:
+            return obj
