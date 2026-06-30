@@ -210,3 +210,52 @@ class AllTagListView(ListView):
 
     def get_queryset(self):
         return Tag.objects.annotate(published_posts_count=Count('posts', filter=Q(posts__status=Post.Status.PUBLISHED))).order_by('-published_posts_count')
+
+class AdvanseSearch(ListView):
+    model=Post
+    template_name="website/search-results.html"
+    context_object_name= 'filtered_posts'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        cat_id = self.request.GET.get('category_id')
+        min_views = self.request.GET.get('min_views')
+        queryset = Post.objects.filter(status= Post.Status.PUBLISHED).prefetch_related('category').select_related('author')
+
+        if query:
+            queryset = queryset.filter(Q(title__icontains=query)| Q(content__icontains=query))
+        
+        if cat_id:
+            queryset = queryset.filter(category__id=cat_id)
+
+
+        if min_views:
+            queryset = queryset.filter(views_count__gte=min_views)
+
+        return queryset
+
+class HotTagsListView(ListView):
+    model = Tag
+    template_name = "blog/hot_tags.html"
+    context_object_name = "tags"
+
+    def get_queryset(self):
+        return Tag.objects.annotate(hot_tags=Count('posts', filter=Q(posts__status=Post.Status.PUBLISHED))).order_by('-hot_tags')[:5]
+    
+
+
+import datetime
+from django.utils import timezone
+    
+class TrendingThisWeekListView(ListView):
+    model = Post
+    template_name = "blog/trending.html"
+    context_object_name = "posts"
+
+    def get_queryset(self):
+        # ۱. تاریخ ۷ روز پیش رو توی یک متغیر حساب کن
+        time_threshold = timezone.now() - datetime.timedelta(days=7)
+        
+        queryset = Post.objects.filter(status=Post.Status.PUBLISHED).select_related('author').prefetch_related('category', 'tags')
+        queryset = queryset.filter(publish_date__gte=time_threshold).order_by('-views_count')
+        return queryset
