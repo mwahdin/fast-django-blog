@@ -301,4 +301,14 @@ class PostCreateView(CreateView):
         post_slug = self.object.slug
         
         return reverse('blog:post_detail', kwargs={'slug': post_slug})
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['title', 'content', 'category']
+    template_name = "blog/post_form.html"
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
         
+        kwargs['user'] = self.request.user
+        return kwargs
