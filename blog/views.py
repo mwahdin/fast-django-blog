@@ -312,3 +312,17 @@ class PostCreateView(CreateView):
         
         kwargs['user'] = self.request.user
         return kwargs
+
+from django.shortcuts import redirect
+class PostUpdateView(UpdateView):
+    model = Post
+    fields = ['title', 'content', 'category']
+    template_name = "blog/post_form.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            return redirect('blog:home')
+       
+        return super().dispatch(request, *args, **kwargs)
+        
