@@ -291,3 +291,14 @@ class PostCreateView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['title', 'content', 'snippet', 'category']
+    template_name = "blog/post_form.html"
+
+    def get_success_url(self):
+        post_slug = self.object.slug
+        
+        return reverse('blog:post_detail', kwargs={'slug': post_slug})
+        
