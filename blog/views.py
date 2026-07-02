@@ -1,7 +1,8 @@
-from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.core.exceptions import PermissionDenied
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy, reverse
 from .models import Post, User, Category, Tag
 from django.db.models import Count, Q
@@ -179,7 +180,8 @@ class SearchResultsView(ListView):
             
         return Post.objects.none()
 
-
+def api_PostListView(request):
+    return HttpResponse('ok')
 
 # ==============================================================================
 # 🏋️‍♂️ PRACTICE VIEWS (QuerySet Optimization & Overriding Methods Practice)
@@ -263,7 +265,7 @@ class HomeBlogView(ListView):
     template_name="blog/home.html"
     context_object_name='posts'
 
-    def get_context_data(self, **kwargs) -> dict[str, Any]:
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["categorys"] = Category.objects.all()
         return context
