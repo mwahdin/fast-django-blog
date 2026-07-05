@@ -42,7 +42,14 @@ INSTALLED_APPS = [
     'accounts',
     'blog',
     'website',
+    'rest_framework',
+    'django_filters',
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,7 +73,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'blog.context_processors.top_authors_processor',
             ],
         },
     },
