@@ -1,3 +1,5 @@
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
@@ -7,6 +9,9 @@ from django.urls import reverse_lazy, reverse
 from .models import Post, User, Category, Tag
 from django.db.models import Count, Q
 
+@api_view()
+def api_PostListView(request):
+    return Response('ok')
 
 class TopAuthorsMixin:
     def get_context_data(self, **kwargs):
@@ -180,8 +185,6 @@ class SearchResultsView(ListView):
             
         return Post.objects.none()
 
-def api_PostListView(request):
-    return HttpResponse('ok')
 
 # ==============================================================================
 # 🏋️‍♂️ PRACTICE VIEWS (QuerySet Optimization & Overriding Methods Practice)
