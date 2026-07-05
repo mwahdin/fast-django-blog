@@ -20,7 +20,7 @@ def postList(request):
 
 
 
-@api_view(["GET", "PUT"])
+@api_view(["GET", "PUT", "DELETE"])
 def postDetail(request, id):
     post = get_object_or_404(Post, pk=id, status=Post.Status.PUBLISHED)
     if request.method =="GET":
@@ -32,3 +32,7 @@ def postDetail(request, id):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+    elif request.method =="DELETE":
+        post.delete()
+        return Response({"details":"the target post was deleted!"}, status=204)
+
