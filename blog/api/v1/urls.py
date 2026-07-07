@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import postList, postDetail
+from .views import PostDetail, PostList
 
 app_name='api-v1'
 
 urlpatterns = [
-    path('posts/',postList, name='posts_list'),
-    path('posts/<int:id>/',postDetail, name='posts_Detaile'),
+    path('posts/', PostList.as_view(), name='post-lists'),
+    path("posts/<int:id>", PostDetail.as_view(), name='post-detail'),
 ]
  
