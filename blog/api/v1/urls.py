@@ -5,6 +5,6 @@ app_name='api-v1'
 
 urlpatterns = [
     path('posts/', PostList.as_view(), name='post-lists'),
-    path("posts/<int:id>", PostDetail.as_view(), name='post-detail'),
+    path("posts/<int:pk>", PostDetail.as_view(), name='post-detail'),
 ]
  
