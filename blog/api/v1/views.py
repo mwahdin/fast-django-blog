@@ -1,22 +1,10 @@
-
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.viewsets import ModelViewSet
 from .Serializer import PostSerializer
 from ...models import Post
 
 
-
-
-class PostList(ListCreateAPIView):
-    
+class PostViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
     queryset = Post.objects.filter(status=Post.Status.PUBLISHED)
-    
-
-
-class PostDetail(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated]
-    serializer_class = PostSerializer
-    queryset = Post.objects.filter(status=Post.Status.PUBLISHED)
-    
