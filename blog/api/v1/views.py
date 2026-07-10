@@ -24,3 +24,6 @@ class PostViewsett(viewsets.ViewSet):
         postObject = get_object_or_404(self.queryset, pk=pk)
         serializer = self.serializer_class(postObject)
         return Response(serializer.data)
+
+    def create(self, request):
+        pass
