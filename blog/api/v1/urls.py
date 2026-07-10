@@ -14,6 +14,6 @@ urlpatterns = [
 
 
     #ViewSet
-    path('post/',PostViewsett.as_view({'get': 'list'}), name="post-list" ),
+    path('post/',PostViewsett.as_view({'get': 'list', 'post': 'create'}), name="post-list" ),
     path('post/<int:pk>/',PostViewsett.as_view({'get': 'retrieve'}), name="post-list" ),
 ]
