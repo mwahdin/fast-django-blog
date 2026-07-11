@@ -1,8 +1,6 @@
-from rest_framework.permissions import IsAuthenticated
-from rest_framework import viewsets 
-from rest_framework.response import Response 
-from .Serializer import PostSerializer
-from ...models import Post
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework import viewsets
+from .Serializer import PostSerializer, CategorySerializer
 from ...models import Post, Category
 
 
