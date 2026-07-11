@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'website',
     'rest_framework',
     'django_filters',
+    'drf_spectacular',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
@@ -153,11 +154,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Rest FrameWork Setting
 REST_FRAMEWORK = {
-    # 'DEFAULT_AUTHENTICATION_CLASSES': [
-    #     'rest_framework.authentication.BasicAuthentication',
-    #     'rest_framework.authentication.SessionAuthentication',
-    # ],
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ],
+     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Fast Django Blog API",
+    "DESCRIPTION": "API documentation for Fast Django Blog",
+    "VERSION": "1.0.0",
 }
